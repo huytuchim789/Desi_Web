@@ -1,0 +1,31 @@
+.banner {
+  background: rgba(0, 171, 85, 0.08);
+  padding-left: 120px;
+  padding-right: 120px;
+  padding-top: 120px;
+  margin-bottom: 300px;
+}
+.desi {
+  background: linear-gradient(135deg, #5be584 0%, #007b55 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.banner :global(.css-1o8ew35-MuiTypography-root) {
+  margin-bottom: 0;
+}
+.banner :global(.css-9pmff8-MuiTypography-root) {
+  font-weight: 400;
+}
+
+.hiring_logo {
+  position: relative;
+  bottom: 20%;
+  scale: 120%;
+  pointer-events: none;
+}
+.img {
+  width: 80px;
+  height: 80px;
+}

@@ -1,0 +1,11 @@
+.convenient {
+  padding-left: 120px;
+  padding-right: 120px;
+  padding-top: 120px;
+}
+.gray_text {
+  font-weight: 400 !important;
+  font-size: 20px;
+  line-height: 28px;
+  color: #637381;
+}
