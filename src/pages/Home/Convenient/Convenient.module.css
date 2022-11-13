@@ -1,7 +1,5 @@
 .convenient {
-  padding-left: 120px;
-  padding-right: 120px;
-  padding-top: 120px;
+  padding: 120px;
 }
 .gray_text {
   font-weight: 400 !important;

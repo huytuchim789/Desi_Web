@@ -1,0 +1,46 @@
+.desi {
+  background: linear-gradient(135deg, #5be584 0%, #007b55 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.outstanding {
+  padding: 60px 120px 80px;
+}
+.email {
+  padding: 90px 210px 90px;
+}
+.text {
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 36px;
+  text-align: center;
+
+  color: #ffffff;
+}
+.gray_text {
+  font-weight: 400 !important;
+  font-size: 20px;
+  line-height: 28px;
+  color: #9d9d9d;
+}
+
+.black_text {
+  font-size: 20px;
+  line-height: 30px;
+  font-weight: 500;
+  /* or 150% */
+
+  /* Black / 100 */
+
+  color: #25282b;
+}
+.card {
+  background-color: unset;
+  box-shadow: unset;
+  max-width: 350px;
+}
+.button {
+  border-radius: 8px;
+  box-shadow: 0px 8px 16px rgba(0, 171, 85, 0.24);
+}

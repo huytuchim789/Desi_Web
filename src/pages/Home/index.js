@@ -6,6 +6,7 @@ import 'slick-carousel/slick/slick.css'
 import 'slick-carousel/slick/slick-theme.css'
 import Newest from './Newest'
 import Convenient from './Convenient'
+import Outstanding from './Outstanding'
 export default function Home() {
   return (
     <div>
@@ -14,6 +15,7 @@ export default function Home() {
       <Impress />
       <Newest />
       <Convenient />
+      <Outstanding />
     </div>
   )
 }

@@ -1,12 +1,4 @@
-import {
-  Box,
-  Card,
-  Grid,
-  List,
-  ListItem,
-  Stack,
-  Typography,
-} from '@mui/material'
+import { Grid, List, ListItem, Stack, Typography } from '@mui/material'
 import React from 'react'
 import Slider from 'react-slick'
 import styles from './../Impress/Impress.module.css'
@@ -107,11 +99,6 @@ export default function Impress() {
               </Typography>
             </ListItem>
           </List>
-          {/* <CheckCircleIcon />
-              <span>
-                Tìm kiếm và ứng tuyển công việc nhanh gọn, dễ dàng, mọi lúc mọi
-                nơi
-              </span> */}
         </Grid>
       </Grid>
     </Stack>

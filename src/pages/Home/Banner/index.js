@@ -84,8 +84,8 @@ export default function Banner() {
               position: 'absolute',
               width: '100%',
               top: '-100px',
-              paddingTop: '40px',
-              paddingBottom: '40px',
+              padding: '40px 20px',
+              left: '-20px',
               boxShadow: '0px 20px 30px rgba(0, 0, 0, 0.05)',
             }}
           >
@@ -99,6 +99,7 @@ export default function Banner() {
                   variant="body2"
                   gutterBottom
                   style={{ color: GRAY_TEXT_COLOR }}
+                  align="center"
                 >
                   {b.body}
                 </Typography>

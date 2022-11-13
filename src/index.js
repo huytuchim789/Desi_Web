@@ -14,6 +14,9 @@ const theme = createTheme({
       fontWeight: '700',
     },
   },
+  palette: {
+    white: '#FFFFFF',
+  },
 })
 const root = ReactDOM.createRoot(document.getElementById('root'))
 root.render(
