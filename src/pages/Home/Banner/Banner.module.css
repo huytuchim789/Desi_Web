@@ -29,3 +29,16 @@
   width: 80px;
   height: 80px;
 }
+.banner_img {
+}
+@media screen and (max-width: 1201px) {
+  .banner {
+    padding: 40px 0 0;
+    margin-bottom: 20px;
+  }
+  .hiring_logo {
+    bottom: 0;
+    scale: 0.6;
+    pointer-events: none;
+  }
+}

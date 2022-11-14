@@ -7,12 +7,15 @@ import ava from './../../../images/newest/IMG.svg'
 export default function Newest() {
   return (
     <Box className={styles.newest}>
-      <Typography variant="h2" gutterBottom>
+      <Typography
+        sx={{ typography: { lg: 'h2', xs: 'h4' }, fontWeight: '700' }}
+        gutterBottom
+      >
         Những công việc
         <span style={{ color: PRIMARY_COLOR }}> mới nhất</span>
       </Typography>
       <Grid container rowSpacing={'50px'} columnSpacing={'50px'}>
-        <Grid item xs={6}>
+        <Grid item lg={6} xs={12}>
           <NewestCard
             name={'Chuyên viên thiết kế đồ họa '}
             content={
@@ -26,7 +29,7 @@ export default function Newest() {
             date={9}
           />
         </Grid>
-        <Grid item xs={6}>
+        <Grid item lg={6} xs={12}>
           <NewestCard
             name={'Chuyên viên thiết kế đồ họa '}
             content={
@@ -40,7 +43,7 @@ export default function Newest() {
             date={9}
           />
         </Grid>
-        <Grid item xs={6}>
+        <Grid item lg={6} xs={12}>
           <NewestCard
             name={'Chuyên viên thiết kế đồ họa '}
             content={
@@ -54,7 +57,7 @@ export default function Newest() {
             date={9}
           />
         </Grid>
-        <Grid item xs={6}>
+        <Grid item lg={6} xs={12}>
           <NewestCard
             name={'Chuyên viên thiết kế đồ họa '}
             content={
@@ -68,7 +71,7 @@ export default function Newest() {
             date={9}
           />
         </Grid>
-        <Grid item xs={6}>
+        <Grid item lg={6} xs={12}>
           <NewestCard
             name={'Chuyên viên thiết kế đồ họa '}
             content={
@@ -82,7 +85,7 @@ export default function Newest() {
             date={9}
           />
         </Grid>
-        <Grid item xs={6}>
+        <Grid item lg={6} xs={12}>
           <NewestCard
             name={'Chuyên viên thiết kế đồ họa '}
             content={
@@ -96,7 +99,7 @@ export default function Newest() {
             date={9}
           />
         </Grid>
-        <Grid item xs={6}>
+        <Grid item lg={6} xs={12}>
           <NewestCard
             name={'Chuyên viên thiết kế đồ họa '}
             content={
@@ -110,7 +113,7 @@ export default function Newest() {
             date={9}
           />
         </Grid>
-        <Grid item xs={6}>
+        <Grid item lg={6} xs={12}>
           <NewestCard
             name={'Chuyên viên thiết kế đồ họa '}
             content={
@@ -124,7 +127,7 @@ export default function Newest() {
             date={9}
           />
         </Grid>
-        <Grid item xs={6}>
+        <Grid item lg={6} xs={12}>
           <NewestCard
             name={'Chuyên viên thiết kế đồ họa '}
             content={
@@ -138,7 +141,7 @@ export default function Newest() {
             date={9}
           />
         </Grid>
-        <Grid item xs={6}>
+        <Grid item lg={6} xs={12}>
           <NewestCard
             name={'Chuyên viên thiết kế đồ họa '}
             content={
@@ -152,7 +155,7 @@ export default function Newest() {
             date={9}
           />
         </Grid>
-        <Grid item xs={6}>
+        <Grid item lg={6} xs={12}>
           <NewestCard
             name={'Chuyên viên thiết kế đồ họa '}
             content={
@@ -166,7 +169,7 @@ export default function Newest() {
             date={9}
           />
         </Grid>
-        <Grid item xs={6}>
+        <Grid item lg={6} xs={12}>
           <NewestCard
             name={'Chuyên viên thiết kế đồ họa '}
             content={

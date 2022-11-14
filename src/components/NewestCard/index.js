@@ -17,24 +17,52 @@ export default function NewestCard({
   return (
     <Stack spacing="21px" className={styles.newest_card}>
       <Stack direction="row" justifyContent="space-between">
-        <Stack direction="row" spacing="16px">
-          <Typography variant="h5">{name}</Typography>
+        <Stack direction={{ lg: 'row', xs: 'column' }} spacing="16px">
+          <Typography
+            sx={{
+              typography: { lg: 'h5', xs: 'h6' },
+              fontWeight: '700',
+              lineHeight: { lg: 'initial', xs: '1' },
+            }}
+          >
+            {name}
+          </Typography>
           <Chip
             label="Mới nhất"
-            style={{ color: '#fff', backgroundColor: '#1890FF' }}
+            sx={{
+              color: '#fff',
+              backgroundColor: '#1890FF',
+              maxWidth: { lg: 'initial', xs: '100px' },
+            }}
           />
         </Stack>
         <FavoriteBorderIcon />
       </Stack>
       <Typography className={styles.normal_text}>{content}</Typography>
-      <Stack direction="row" alignItems="center" justifyContent="space-between">
+      <Stack
+        direction={{ lg: 'row' }}
+        alignItems={{ lg: 'center', xs: 'start' }}
+        justifyContent={{ lg: 'space-between', xs: 'start' }}
+      >
         <Stack direction="row" alignItems="center" spacing="20px">
           <Avatar src={avatar} />
           <Typography variant="body2">{company}</Typography>
         </Stack>
-        <Typography variant="h5">{salary}</Typography>
+        <Typography
+          sx={{
+            typography: { lg: 'h5', xs: 'body1' },
+            fontWeight: '400',
+            display: { lg: 'initial', xs: 'none' },
+          }}
+        >
+          {salary}
+        </Typography>
       </Stack>
-      <Stack direction="row" justifyContent="space-between">
+      <Stack
+        direction={{ lg: 'row', xs: 'column' }}
+        justifyContent="space-between"
+        spacing={{ xs: '20px' }}
+      >
         <Stack direction="row" spacing="12px">
           {tags.map((t) => (
             <Chip

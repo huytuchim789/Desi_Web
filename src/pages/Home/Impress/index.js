@@ -8,6 +8,7 @@ import RightArrow from './../../../images/impress/next_arrow.svg'
 import Report from './../../../images/impress/report.svg'
 import CheckCircleIcon from '@mui/icons-material/CheckCircle'
 import { PRIMARY_COLOR } from '../../../utilities/constant'
+import styledEngine from '@mui/styled-engine'
 const PrevArrow = (props) => <img src={LeftArrow} alt="" {...props} />
 const settings = {
   infinite: true,
@@ -17,6 +18,20 @@ const settings = {
   prevArrow: <PrevArrow />,
   nextArrow: <img src={RightArrow} alt="" />,
   centerMode: true,
+  responsive: [
+    {
+      breakpoint: 601,
+      settings: {
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        infinite: true,
+        dots: true,
+        prevArrow: <></>,
+        nextArrow: <></>,
+        centerMode: false,
+      },
+    },
+  ],
 }
 const impress = [
   { text: 'Thiết kế đồ họa', img: img1 },
@@ -28,7 +43,10 @@ const impress = [
 export default function Impress() {
   return (
     <Stack className={styles.impress} spacing="40px">
-      <Typography variant="h2" gutterBottom>
+      <Typography
+        sx={{ typography: { lg: 'h2', xs: 'h4' }, fontWeight: '700' }}
+        gutterBottom
+      >
         Danh mục công việc
         <span style={{ color: PRIMARY_COLOR }}> nổi bật</span>
       </Typography>
@@ -36,29 +54,38 @@ export default function Impress() {
         {impress.map((i) => (
           <div>
             <Stack
-              // className="ahihi"
-
-              style={{
+              sx={{
                 position: 'relative',
                 backgroundImage: `url(${i.img})`,
                 backgroundRepeat: 'no-repeat',
-                width: '300px',
+                width: { lg: '300px', xs: '100%' },
                 height: '400px',
+                backgroundSize: { lg: 'initial', xs: 'cover' },
               }}
               justifyContent="center"
             >
-              {/* <img src={i.img} alt="" style={{ visibility: 'hidden' }} /> */}
               <span className={styles.text}>{i.text}</span>
             </Stack>
           </div>
         ))}
       </Slider>
       <Grid container>
-        <Grid item xs={6}>
-          <img src={Report} alt="" />
+        <Grid
+          item
+          lg={6}
+          xs={12}
+          sx={{
+            display: { lg: 'initial', xs: 'flex' },
+            justifyContent: 'center',
+          }}
+        >
+          <img src={Report} alt="" className={styles.img} />
         </Grid>
-        <Grid item xs={6}>
-          <Typography variant="h3" gutterBottom>
+        <Grid item lg={6} xs={12}>
+          <Typography
+            sx={{ typography: { lg: 'h3', xs: 'h5' }, fontWeight: '700' }}
+            gutterBottom
+          >
             Cơ hội vàng nằm gọn trong tay bạn
           </Typography>
           <List>

@@ -1,4 +1,4 @@
-import { Box, Grid, Stack } from '@mui/material'
+import { Box, Grid, Stack, Typography } from '@mui/material'
 import React from 'react'
 import { Link } from 'react-router-dom'
 import Logo from '../../images/logo.svg'
@@ -18,23 +18,43 @@ export default function Header() {
     setLanguage(event.target.value)
   }
   return (
-    <Grid container className={styles.header} spacing="200px">
-      <Grid item xs={6}>
-        <Stack direction="row" spacing={'56px'} alignItems="center">
+    <Grid
+      container
+      className={styles.header}
+      spacing={{ lg: '200px', xs: '0' }}
+    >
+      <Grid item lg={6} xs={12}>
+        <Stack
+          direction={{ lg: 'row', xs: 'column' }}
+          spacing={{ lg: '56px', xs: '5px' }}
+          alignItems={{ lg: 'center', xs: 'left' }}
+        >
           <Link>
             <img className={styles.logo} src={Logo} alt="" />
           </Link>
-          <Link>Tìm việc làm</Link>
-          <Link>Tìm Freelancer</Link>
-          <Link>Blog</Link>
+          <Link>
+            <Typography className={styles.normal_text} noWrap>
+              Tìm việc làm
+            </Typography>
+          </Link>
+          <Link>
+            <Typography className={styles.normal_text} noWrap>
+              Tìm Freelancer
+            </Typography>
+          </Link>
+          <Link>
+            <Typography className={styles.normal_text} noWrap>
+              Blog
+            </Typography>
+          </Link>
         </Stack>
       </Grid>
-      <Grid item xs={6}>
+      <Grid item lg={6} xs={12}>
         <Stack
           spacing={'40px'}
-          direction="row"
+          direction={{ lg: 'row', xs: 'column' }}
           alignItems="center"
-          justifyContent="end"
+          justifyContent={{ lg: 'end' }}
           height={'100%'}
         >
           <FormControl variant="standard">
@@ -45,6 +65,7 @@ export default function Header() {
               onChange={handleChange}
               disableUnderline
               style={{ paddingBottom: '0px' }}
+              sx={{ display: { lg: 'inline', xs: 'none' } }}
             >
               <MenuItem value={'VI'}>VI</MenuItem>
               <MenuItem value={'EN'}>EN</MenuItem>
@@ -53,7 +74,16 @@ export default function Header() {
           </FormControl>
           <Button
             variant="text"
-            style={{ lineHeight: '27px', color: PRIMARY_COLOR }}
+            style={{
+              lineHeight: '27px',
+              color: PRIMARY_COLOR,
+              whiteSpace: 'nowrap',
+              // minWidth: '80px',
+            }}
+            sx={{
+              width: { xs: '100%', lg: 'initial' },
+              border: { lg: 'none', xs: `1px solid ${PRIMARY_COLOR}` },
+            }}
             disableElevation
             disableFocusRipple
             disableRipple
@@ -62,13 +92,27 @@ export default function Header() {
           </Button>
           <CustomButton
             className={styles.button}
-            style={{ backgroundColor: PRIMARY_COLOR }}
+            style={{
+              backgroundColor: PRIMARY_COLOR,
+              whiteSpace: 'nowrap',
+              // minWidth: '80px',
+            }}
+            sx={{
+              width: { xs: '100%', lg: 'initial' },
+            }}
           >
             Đăng ký
           </CustomButton>
           <CustomButton
             className={styles.button}
-            style={{ backgroundColor: SECONDARY_COLOR }}
+            style={{
+              backgroundColor: SECONDARY_COLOR,
+              whiteSpace: 'nowrap',
+              // minWidth: '80px',
+            }}
+            sx={{
+              width: { xs: '100%', lg: 'initial' },
+            }}
           >
             Đăng tin tuyển dụng
           </CustomButton>

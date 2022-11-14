@@ -7,9 +7,6 @@ a:hover,
 a:active {
   color: inherit;
 }
-a:hover {
-  text-decoration: underline;
-}
 .slick-prev,
 .slick-next {
   width: 100px;

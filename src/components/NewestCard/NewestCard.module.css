@@ -12,3 +12,10 @@
   font-size: 14px;
   line-height: 22px;
 }
+@media screen and (max-width: 600px) {
+  .normal_text {
+    font-weight: 400 !important;
+    font-size: 14px;
+    line-height: 22px;
+  }
+}

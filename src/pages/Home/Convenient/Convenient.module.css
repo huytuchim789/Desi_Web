@@ -7,3 +7,9 @@
   line-height: 28px;
   color: #637381;
 }
+@media screen and (max-width: 1201px) {
+  .convenient {
+    padding: 40px 0 0;
+    margin-bottom: 20px;
+  }
+}

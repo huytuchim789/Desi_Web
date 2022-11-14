@@ -33,12 +33,16 @@ export default function Banner() {
   return (
     <Box className={styles.banner}>
       <Grid container>
-        <Grid item xs={6}>
+        <Grid
+          item
+          lg={6}
+          xs={12}
+          sx={{ padding: { xs: '0 20px', lg: 'initial' } }}
+        >
           <Stack spacing={'30px'}>
             <Typography
-              variant="h1"
               gutterBottom
-              styles={{ fontWeight: '700' }}
+              sx={{ typography: { lg: 'h1', xs: 'h4' }, fontWeight: '700' }}
             >
               Tìm việc freelance cùng với
               <span className={styles.desi}> Desi</span>
@@ -53,9 +57,9 @@ export default function Banner() {
               tìm việc freelancer trong lĩnh vực thiết kế
             </Typography>
             <CustomButton
-              style={{
+              sx={{
                 backgroundColor: PRIMARY_COLOR,
-                width: '30%',
+                width: { lg: '30%', xs: '45%' },
                 padding: '11px 12px',
               }}
             >
@@ -63,9 +67,10 @@ export default function Banner() {
             </CustomButton>
           </Stack>
         </Grid>
-        <Grid item xs={6}>
+        <Grid item lg={6} xs={12}>
           <Stack
             className={styles.hiring_logo}
+            sx={{ maxHeight: { lg: 'initial', xs: '550px' } }}
             direction="row"
             alignItems="center"
             justifyContent="center"
@@ -73,18 +78,18 @@ export default function Banner() {
             <img src={Hiring} alt="" />
           </Stack>
         </Grid>
-        <Grid item xs={12} style={{ position: 'relative' }}>
+        <Grid item lg={12} sx={{ position: 'relative' }}>
           <Stack
-            direction="row"
+            direction={{ lg: 'row', xs: 'column' }}
             alignItems="center"
             justifyContent="center"
-            spacing={'120px'}
-            style={{
+            spacing={{ lg: '120px', xs: '20px' }}
+            sx={{
               backgroundColor: WHITE_COLOR,
-              position: 'absolute',
+              position: { lg: 'absolute', xs: 'static' },
               width: '100%',
               top: '-100px',
-              padding: '40px 20px',
+              padding: { lg: '40px 20px', xs: '40px 0' },
               left: '-20px',
               boxShadow: '0px 20px 30px rgba(0, 0, 0, 0.05)',
             }}
