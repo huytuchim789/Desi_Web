@@ -8,23 +8,23 @@ import {
   Stack,
   TextField,
   Typography,
-} from '@mui/material'
-import { withStyles } from '@mui/styles'
-import React from 'react'
-import Slider from 'react-slick'
-import styles from './../Outstanding/Outstanding.module.css'
-import img1 from './../../../images/Outstanding/countryside.svg'
-import ava from './../../../images/Outstanding/ttn.svg'
-import LeftArrow from './../../../images/impress/prev_arrow.svg'
-import RightArrow from './../../../images/impress/next_arrow.svg'
-import { PRIMARY_COLOR } from '../../../utilities/constant'
-import bg from './../../../images/Outstanding/qoute.svg'
-import bgEmail from './../../../images/Outstanding/bg-input.svg'
-import Card from '@mui/material/Card'
-import CardMedia from '@mui/material/CardMedia'
-import { CardActionArea } from '@mui/material'
-import CustomButton from '../../../components/CustomButton'
-const PrevArrow = (props) => <img src={LeftArrow} alt="" {...props} />
+} from "@mui/material";
+import { withStyles } from "@mui/styles";
+import React from "react";
+import Slider from "react-slick";
+import styles from "./../Outstanding/Outstanding.module.css";
+import img1 from "./../../../images/Outstanding/countryside.svg";
+import ava from "./../../../images/Outstanding/ttn.svg";
+import LeftArrow from "./../../../images/impress/prev_arrow.svg";
+import RightArrow from "./../../../images/impress/next_arrow.svg";
+import { PRIMARY_COLOR } from "../../../utilities/constant";
+import bg from "./../../../images/Outstanding/qoute.svg";
+import bgEmail from "./../../../images/Outstanding/bg-input.svg";
+import Card from "@mui/material/Card";
+import CardMedia from "@mui/material/CardMedia";
+import { CardActionArea } from "@mui/material";
+import CustomButton from "../../../components/CustomButton";
+const PrevArrow = (props) => <img src={LeftArrow} alt="" {...props} />;
 const settings = {
   infinite: true,
   speed: 500,
@@ -33,80 +33,80 @@ const settings = {
   prevArrow: <PrevArrow />,
   nextArrow: <img src={RightArrow} alt="" />,
   centerMode: true,
-}
+};
 const CssTextField = withStyles({
   root: {
-    '& label.Mui-focused': {
-      color: 'white',
+    "& label.Mui-focused": {
+      color: "white",
     },
 
-    '& .MuiInput-underline:after': {
-      borderBottomColor: 'white',
+    "& .MuiInput-underline:after": {
+      borderBottomColor: "white",
     },
-    '& .MuiOutlinedInput-root': {
-      '& fieldset': {
-        borderColor: 'white',
+    "& .MuiOutlinedInput-root": {
+      "& fieldset": {
+        borderColor: "white",
       },
-      '& notchedOutline': {
-        color: 'white',
+      "& notchedOutline": {
+        color: "white",
       },
-      '&:hover fieldset': {
-        borderColor: 'white',
+      "&:hover fieldset": {
+        borderColor: "white",
       },
-      '&.Mui-focused fieldset': {
-        borderColor: 'white',
+      "&.Mui-focused fieldset": {
+        borderColor: "white",
       },
     },
   },
   input: {
-    '&:hover $notchedOutline': {
-      borderColor: 'white',
+    "&:hover $notchedOutline": {
+      borderColor: "white",
     },
-    '&$focused $notchedOutline': {
-      borderColor: 'white',
+    "&$focused $notchedOutline": {
+      borderColor: "white",
     },
   },
   notchedOutline: {
-    borderColor: 'white',
+    borderColor: "white",
   },
-})(TextField)
+})(TextField);
 const cards = [
-  { job: 'Art Design', name: 'Thu Trang Nguyen ', img: img1, avatar: ava },
-  { job: 'Art Design', name: 'Thu Trang Nguyen ', img: img1, avatar: ava },
-  { job: 'Art Design', name: 'Thu Trang Nguyen ', img: img1, avatar: ava },
-  { job: 'Art Design', name: 'Thu Trang Nguyen ', img: img1, avatar: ava },
-  { job: 'Art Design', name: 'Thu Trang Nguyen ', img: img1, avatar: ava },
-]
+  { job: "Art Design", name: "Thu Trang Nguyen ", img: img1, avatar: ava },
+  { job: "Art Design", name: "Thu Trang Nguyen ", img: img1, avatar: ava },
+  { job: "Art Design", name: "Thu Trang Nguyen ", img: img1, avatar: ava },
+  { job: "Art Design", name: "Thu Trang Nguyen ", img: img1, avatar: ava },
+  { job: "Art Design", name: "Thu Trang Nguyen ", img: img1, avatar: ava },
+];
 const customers = [
   {
     header:
-      'Freelancer hoàn thành rất tốt và có trách nhiệm với công việc. Tôi rất hài lòng và sẽ hợp tác lại!',
-    job: 'Quản lý ',
-    name: 'Mai An',
+      "Freelancer hoàn thành rất tốt và có trách nhiệm với công việc. Tôi rất hài lòng và sẽ hợp tác lại!",
+    job: "Quản lý ",
+    name: "Mai An",
     avatar: ava,
   },
   {
     header:
-      'Freelancer hoàn thành rất tốt và có trách nhiệm với công việc. Tôi rất hài lòng và sẽ hợp tác lại!',
-    job: 'Quản lý ',
-    name: 'Mai An',
+      "Freelancer hoàn thành rất tốt và có trách nhiệm với công việc. Tôi rất hài lòng và sẽ hợp tác lại!",
+    job: "Quản lý ",
+    name: "Mai An",
     avatar: ava,
   },
   {
     header:
-      'Freelancer hoàn thành rất tốt và có trách nhiệm với công việc. Tôi rất hài lòng và sẽ hợp tác lại!',
-    job: 'Quản lý ',
-    name: 'Mai An',
+      "Freelancer hoàn thành rất tốt và có trách nhiệm với công việc. Tôi rất hài lòng và sẽ hợp tác lại!",
+    job: "Quản lý ",
+    name: "Mai An",
     avatar: ava,
   },
-]
+];
 export default function Outstanding() {
   return (
     <>
       <Stack
         className={styles.outstanding}
         spacing="40px"
-        style={{ marginBottom: '30px' }}
+        style={{ marginBottom: "30px" }}
       >
         <Typography variant="h2" gutterBottom>
           Hồ sơ năng lực
@@ -117,8 +117,8 @@ export default function Outstanding() {
             <div>
               <Card
                 sx={{
-                  maxWidth: '360px',
-                  boxShadow: '0px 12px 24px -4px rgba(145, 158, 171, 0.12)',
+                  maxWidth: "360px",
+                  boxShadow: "0px 12px 24px -4px rgba(145, 158, 171, 0.12)",
                 }}
               >
                 <CardActionArea>
@@ -139,11 +139,11 @@ export default function Outstanding() {
       <Stack
         className={styles.outstanding}
         style={{
-          backgroundColor: '#FAF9F7',
+          backgroundColor: "#FAF9F7",
           backgroundImage: `url(${bg})`,
-          backgroundSize: '35% 35%',
-          backgroundRepeat: 'repeat-x',
-          backgroundPosition: '60% 70%',
+          backgroundSize: "30% 30%",
+          backgroundRepeat: "repeat-x",
+          backgroundPosition: "65% 70%",
         }}
         alignItems="center"
       >
@@ -156,7 +156,7 @@ export default function Outstanding() {
               <CardContent className={styles.black_text}>
                 <Typography>{i.header}</Typography>
               </CardContent>
-              <CardActionArea>
+              <CardActionArea disableTouchRipple>
                 <CardHeader
                   avatar={<Avatar src={i.avatar} aria-label="recipe"></Avatar>}
                   title={i.job}
@@ -171,8 +171,8 @@ export default function Outstanding() {
         className={styles.email}
         sx={{
           backgroundImage: `url(${bgEmail})`,
-          backgroundRepeat: 'no-repeat',
-          backgroundSize: 'cover',
+          backgroundRepeat: "no-repeat",
+          backgroundSize: "cover",
         }}
         alignItems="center"
         spacing="50px"
@@ -180,7 +180,7 @@ export default function Outstanding() {
         <Typography
           variant="h5"
           gutterBottom
-          style={{ color: '#FFF' }}
+          style={{ color: "#FFF" }}
           align="center"
         >
           Để lại email để không bỏ lỡ bất kỳ tin tuyển dụng hấp dẫn, hoặc các
@@ -189,8 +189,8 @@ export default function Outstanding() {
         <Grid
           container
           alignItems="center"
-          justifyContent={'center'}
-          sx={{ width: '60%' }}
+          justifyContent={"center"}
+          sx={{ width: "60%" }}
           columnSpacing="30px"
         >
           <Grid item xs={8}>
@@ -199,16 +199,16 @@ export default function Outstanding() {
               label="Nhập Email"
               variant="outlined"
               color="white"
-              inputProps={{ style: { color: 'white' } }}
-              InputLabelProps={{ style: { color: 'white' } }}
+              inputProps={{ style: { color: "white" } }}
+              InputLabelProps={{ style: { color: "white" } }}
               sx={{
-                width: '100%',
+                width: "100%",
               }}
             />
           </Grid>
           <Grid item xs={4}>
             <CustomButton
-              style={{ backgroundColor: PRIMARY_COLOR, padding: '12px 55px' }}
+              style={{ backgroundColor: PRIMARY_COLOR, padding: "12px 45px" }}
               className={styles.button}
               size="large"
             >
@@ -218,5 +218,5 @@ export default function Outstanding() {
         </Grid>
       </Stack>
     </>
-  )
+  );
 }

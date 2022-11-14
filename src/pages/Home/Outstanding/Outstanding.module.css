@@ -36,8 +36,8 @@
   color: #25282b;
 }
 .card {
-  background-color: unset;
-  box-shadow: unset;
+  background-color: unset !important;
+  box-shadow: unset !important; 
   max-width: 350px;
 }
 .button {
