@@ -1,5 +1,5 @@
 import { Box, Chip, Typography, Stack, Avatar } from '@mui/material'
-import React from 'react'
+import React, { useState } from 'react'
 import { PRIMARY_COLOR } from '../../utilities/constant'
 import CustomButton from '../CustomButton'
 import styles from './../NewestCard/NewestCard.module.css'
@@ -14,8 +14,20 @@ export default function NewestCard({
   hour,
   date,
 }) {
+  const [hovering, setHovering] = useState(false)
+  const hover = () => {
+    setHovering(true)
+  }
+  const unHover = () => {
+    setHovering(false)
+  }
   return (
-    <Stack spacing="21px" className={styles.newest_card}>
+    <Stack
+      onMouseOver={hover}
+      onMouseOut={unHover}
+      spacing="21px"
+      className={styles.newest_card}
+    >
       <Stack direction="row" justifyContent="space-between">
         <Stack direction={{ lg: 'row', xs: 'column' }} spacing="16px">
           <Typography
@@ -75,7 +87,9 @@ export default function NewestCard({
           ))}
         </Stack>
         <CustomButton
-          className={styles.button}
+          className={`${styles.button} ${
+            hovering ? styles.show : styles.unShow
+          }`}
           style={{ backgroundColor: PRIMARY_COLOR }}
         >
           Xem chi tiết

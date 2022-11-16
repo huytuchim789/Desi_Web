@@ -37,10 +37,33 @@
 }
 .card {
   background-color: unset !important;
-  box-shadow: unset !important; 
+  box-shadow: unset !important;
   max-width: 350px;
 }
 .button {
   border-radius: 8px;
   box-shadow: 0px 8px 16px rgba(0, 171, 85, 0.24);
+}
+.show {
+  display: flex !important;
+}
+.none {
+  display: none !important;
+}
+@media screen and (max-width: 600px) {
+  .outstanding {
+    padding: 40px 20px 40px;
+  }
+  .email {
+    padding: 40px 20px 40px;
+  }
+  .card {
+    max-width: 100%;
+  }
+  .show {
+    display: none !important;
+  }
+  .none {
+    display: flex !important;
+  }
 }

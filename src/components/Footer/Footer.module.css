@@ -31,3 +31,8 @@
 .logo {
   max-width: 160px;
 }
+@media screen and (max-width: 601px) {
+  .footer {
+    padding: 20px 20px 30px;
+  }
+}

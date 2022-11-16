@@ -78,7 +78,7 @@ export default function Banner() {
             <img src={Hiring} alt="" />
           </Stack>
         </Grid>
-        <Grid item lg={12} sx={{ position: 'relative' }}>
+        <Grid item lg={12} sx={{ position: 'relative' }} xs={12}>
           <Stack
             direction={{ lg: 'row', xs: 'column' }}
             alignItems="center"
