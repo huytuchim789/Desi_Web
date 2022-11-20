@@ -92,30 +92,25 @@ export default function Header() {
           </Button>
           <CustomButton
             className={styles.button}
-            style={{
-              backgroundColor: PRIMARY_COLOR,
-              whiteSpace: 'nowrap',
-              // minWidth: '80px',
-            }}
             sx={{
               width: { xs: '100%', lg: 'initial' },
+              backgroundColor: PRIMARY_COLOR,
+              whiteSpace: 'nowrap',
             }}
           >
             Đăng ký
           </CustomButton>
-          <CustomButton
-            className={styles.button}
-            style={{
-              backgroundColor: SECONDARY_COLOR,
-              whiteSpace: 'nowrap',
-              // minWidth: '80px',
-            }}
+          <Button
+            variant="contained"
+            className={`${styles.blue}`}
             sx={{
               width: { xs: '100%', lg: 'initial' },
+              backgroundColor: SECONDARY_COLOR,
+              whiteSpace: 'nowrap',
             }}
           >
             Đăng tin tuyển dụng
-          </CustomButton>
+          </Button>
         </Stack>
       </Grid>
     </Grid>

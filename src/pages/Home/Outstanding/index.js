@@ -282,6 +282,7 @@ export default function Outstanding() {
                 padding: { lg: '12px 45px', xs: '6px 20px' },
                 whiteSpace: 'nowrap',
                 display: { lg: 'initial', xs: 'none' },
+                height: { lg: '60px' },
               }}
               className={styles.button}
               size="large"

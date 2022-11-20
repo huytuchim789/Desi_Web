@@ -1,0 +1,83 @@
+@import './../../scss/constant.css';
+
+.normal_text {
+  font-weight: 400 !important;
+  font-size: 16px !important;
+  line-height: 24px !important;
+  /* or 150% */
+
+  /* 11 Text Color/Light/02 Text Secondary */
+
+  color: #637381 !important;
+  text-align: center !important;
+}
+.login {
+  height: 100vh;
+}
+.logo {
+  object-fit: cover;
+  width: 162px;
+}
+.button {
+  padding-top: 12px !important;
+  padding-bottom: 12px !important;
+}
+.logo_btn {
+  width: 30% !important;
+  border: 1px solid rgba(145, 158, 171, 0.32) !important;
+  border-radius: 8px !important;
+  padding: 10px 20px !important;
+}
+/* .login :global(.MuiInputLabel-asterisk) {
+  color: red;
+}
+.login :global(label[data-shrink='false'] span) {
+  display: none;
+}
+.login :global(.MuiInputLabel-shrink) {
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 18px;
+ 
+
+  color: #919eab;
+}
+
+.login :global(.MuiCheckbox-root) {
+  padding: 0;
+}
+.login :global(.MuiToggleButtonGroup-groupedHorizontal) {
+  width: 48% !important;
+}
+.login :global(.MuiToggleButtonGroup-root) {
+  display: flex;
+  justify-content: space-between;
+}
+.login :global(.MuiToggleButton-primary) {
+  font-weight: 700;
+  font-size: 15px;
+  line-height: 26px;
+ 
+
+  color: #212b36;
+}
+.login :global(.MuiToggleButtonGroup-grouped:not(:first-of-type)) {
+  border-left: 1px solid rgba(0, 0, 0, 0.12) !important;
+}
+
+.login :global(.Mui-selected) {
+  color: var(--primary_color) !important;
+  border: 1px solid var(--primary_color) !important;
+  border-left: 1px solid var(--primary_color) !important;
+}
+.login :global(.Mui-checked) {
+  color: var(--primary_color) !important;
+}
+.login :global(.MuiFormHelperText-root) {
+  font-weight: 400 !important;
+  font-size: 12px;
+  line-height: 18px;
+ 
+  color: #ff4842 !important;
+  margin: 2px 0 0 0;
+} */

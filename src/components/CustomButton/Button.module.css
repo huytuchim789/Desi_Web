@@ -1,0 +1,6 @@
+.buttons {
+  border-radius: 8px !important;
+}
+.buttons:hover {
+  background-color: #007b55 !important;
+}

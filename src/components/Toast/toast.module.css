@@ -1,0 +1,4 @@
+.toast :global(.MuiAlert-filledSuccess) {
+  background-color: #e9fcd4 !important;
+  color: #08660d;
+}

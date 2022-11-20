@@ -1,0 +1,46 @@
+.forget {
+  padding: 140px 30%;
+}
+.normal_text {
+  font-weight: 400 !important;
+  font-size: 16px !important;
+  line-height: 24px !important;
+  /* or 150% */
+
+  /* 11 Text Color/Light/02 Text Secondary */
+
+  color: #637381;
+  text-align: center;
+}
+.otp {
+  /* width: 15%; */
+  border: 1px solid rgba(145, 158, 171, 0.32);
+  border-radius: 8px;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+.otp input {
+  font-family: 'Public Sans';
+
+  width: 56px !important;
+  height: 56px;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+  /* identical to box height, or 150% */
+  /* 11 Text Color/Light/01 Text Primary */
+  border: 1px solid rgba(145, 158, 171, 0.32);
+  border-radius: 8px;
+  color: #212b36;
+}
+.otp input:focus {
+  outline: none;
+}
+.button {
+  padding: 11px 200px !important;
+}
+
+.logo {
+  width: 161px;
+  height: 53px;
+}

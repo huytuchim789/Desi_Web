@@ -15,6 +15,7 @@ export default function NewestCard({
   date,
 }) {
   const [hovering, setHovering] = useState(false)
+  const [love, setLove] = useState(false)
   const hover = () => {
     setHovering(true)
   }
@@ -48,7 +49,12 @@ export default function NewestCard({
             }}
           />
         </Stack>
-        <FavoriteBorderIcon />
+        <FavoriteBorderIcon
+          sx={{ color: love ? PRIMARY_COLOR : 'initial', cursor: 'pointer' }}
+          onClick={() => {
+            setLove(!love)
+          }}
+        />
       </Stack>
       <Typography className={styles.normal_text}>{content}</Typography>
       <Stack
@@ -90,7 +96,7 @@ export default function NewestCard({
           className={`${styles.button} ${
             hovering ? styles.show : styles.unShow
           }`}
-          style={{ backgroundColor: PRIMARY_COLOR }}
+          sx={{ backgroundColor: PRIMARY_COLOR }}
         >
           Xem chi tiết
         </CustomButton>

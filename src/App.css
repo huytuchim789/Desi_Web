@@ -1,3 +1,4 @@
+@import url('./scss/constant.css');
 a:-webkit-any-link {
   text-decoration: unset;
 }
@@ -5,7 +6,7 @@ a,
 a:visited,
 a:hover,
 a:active {
-  color: inherit;
+  /* color: inherit; */
 }
 .slick-prev,
 .slick-next {
@@ -23,4 +24,70 @@ a:active {
 }
 .slick-slider {
   display: flex;
+}
+
+/* form */
+
+.MuiInputLabel-asterisk {
+  color: red;
+}
+label[data-shrink='false'] span {
+  display: none;
+}
+.MuiInputLabel-shrink {
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 18px;
+  /* identical to box height, or 150% */
+
+  /* 11 Text Color/Light/03 Text Disabled */
+
+  color: #919eab;
+}
+
+.MuiCheckbox-root {
+  padding: 0 !important;
+}
+.MuiToggleButtonGroup-groupedHorizontal {
+  width: 48% !important;
+}
+.MuiToggleButtonGroup-root {
+  display: flex;
+  justify-content: space-between;
+}
+.MuiToggleButton-primary {
+  font-weight: 700;
+  font-size: 15px;
+  line-height: 26px;
+  /* identical to box height, or 173% */
+
+  /* 11 Text Color/Light/01 Text Primary */
+
+  color: #212b36;
+}
+.MuiToggleButtonGroup-grouped:not(:first-of-type) {
+  border-left: 1px solid rgba(0, 0, 0, 0.12) !important;
+}
+
+.Mui-selected {
+  color: var(--primary_color) !important;
+  border: 1px solid var(--primary_color) !important;
+  border-left: 1px solid var(--primary_color) !important;
+}
+.Mui-checked {
+  color: var(--primary_color) !important;
+}
+.MuiFormHelperText-root {
+  font-weight: 400 !important;
+  font-size: 12px !important;
+  line-height: 18px !important;
+  /* identical to box height, or 150% */
+
+  /* 06 Error/03 Main */
+
+  color: #ff4842 !important;
+  margin: 2px 0 0 0 !important;
+}
+.MuiFormControlLabel-root {
+  margin-left: 0 !important;
 }

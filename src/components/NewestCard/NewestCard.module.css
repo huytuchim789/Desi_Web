@@ -1,6 +1,6 @@
 .button {
-  border-radius: 8px;
-  transition: visibility 0.3s linear, opacity 2s linear;
+  border-radius: 8px !important;
+  transition: visibility 0.3s linear, opacity 0.5s linear;
 }
 .newest_card {
   background-color: #fff;
@@ -9,9 +9,10 @@
 }
 
 .normal_text {
-  font-weight: 400;
+  font-weight: 400 !important;
   font-size: 14px;
   line-height: 22px;
+  color: #637381;
 }
 .show {
   opacity: 1;
@@ -21,7 +22,7 @@
 }
 @media screen and (max-width: 600px) {
   .normal_text {
-    font-weight: 400 !important;
+    font-weight: 700 !important;
     font-size: 14px;
     line-height: 22px;
   }
