@@ -91,3 +91,6 @@ label[data-shrink='false'] span {
 .MuiFormControlLabel-root {
   margin-left: 0 !important;
 }
+.MuiOutlinedInput-root input{
+  font-weight: 400 !important;
+}
