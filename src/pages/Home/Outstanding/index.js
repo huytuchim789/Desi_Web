@@ -246,10 +246,10 @@ export default function Outstanding() {
           sx={{
             typography: { lg: 'h5', xs: 'body2' },
             fontWeight: '700',
-            textAlign: { lg: 'inherit', xs: 'center' },
           }}
           gutterBottom
           style={{ color: '#FFF' }}
+          align="center"
         >
           Để lại email để không bỏ lỡ bất kỳ tin tuyển dụng hấp dẫn, hoặc các
           ứng viên tài năng tại website Desi !
@@ -259,7 +259,7 @@ export default function Outstanding() {
           alignItems="center"
           justifyContent={{ lg: 'center' }}
           sx={{ width: { lg: '60%', xs: '100%' } }}
-          columnSpacing={{ lg: '30px', xs: '10px' }}
+          columnSpacing={{ lg: '15px', xs: '10px' }}
         >
           <Grid item lg={8} xs={12}>
             <CssTextField

@@ -1,22 +1,40 @@
 import {
   Autocomplete,
   FilledInput,
+  FormControl,
   Input,
+  InputLabel,
+  MenuItem,
   OutlinedInput,
+  Select,
   Stack,
   TextField,
-} from "@mui/material";
-import Footer from "components/Footer";
-import Header from "components/Header";
-import React from "react";
-import styles from "./../FindJob/FindJob.module.css";
-const top100Films = [
-  { label: "The Shawshank Redemption", year: 1994, id: "1" },
-  { label: "The Godfather", year: 1972, id: "2" },
-  { label: "The Godfather: Part II", year: 1974, id: "3" },
-  { label: "The Dark Knight", year: 2008, id: "4" },
-];
+  Typography,
+} from '@mui/material'
+import CustomButton from 'components/CustomButton'
+import Footer from 'components/Footer'
+import Header from 'components/Header'
+import React from 'react'
+import { PRIMARY_COLOR } from 'utilities/constant'
+import styles from './../FindJob/FindJob.module.css'
+import SearchIcon from '@mui/icons-material/Search'
+
+const jobs = [
+  'Tất cả công việc',
+  'Thiết kế nhận diện thương hiệu ',
+  'Thiết kế đồ họa truyền thông ',
+  'Thiết kế hoạt họa',
+  'Thiết kế nội thất ',
+]
+const prices = [
+  'Dưới 500.000 VND',
+  '500.000 - 1.500.000 VND',
+  '1.500.000 - 3.000.000 VND',
+]
 export default function FindJob() {
+  const [job, setJob] = React.useState('')
+  const [price, setPrice] = React.useState('')
+
   return (
     <>
       <Header />
@@ -30,26 +48,67 @@ export default function FindJob() {
           id="outlined-required"
           hiddenLabel
           placeholder="Tên công việc, vị trí bạn muốn ứng tuyển ..."
-          sx={{ width: "30%" }}
+          sx={{ width: '30%' }}
         />
-        <Autocomplete
-          disablePortal
-          id="combo-box-demo"
-          options={top100Films}
-          sx={{ width: "30%" }}
-          renderInput={(params) => <TextField {...params} label="Movie" />}
-          defaultValue="3"
-        />
-        <Autocomplete
-          disablePortal
-          id="combo-box-demo"
-          options={top100Films}
-          renderInput={(params) => <TextField {...params} label="Movie" />}
-          sx={{ width: "30%" }}
-          defaultValue="3"
-        />
+
+        <FormControl sx={{ width: '30%' }}>
+          <Select
+            labelId="demo-simple-select-label"
+            id="demo-simple-select"
+            hiddenLabel
+            value={job}
+            // placeholder="Danh mục công việc"
+            displayEmpty
+            renderValue={job !== '' ? undefined : () => 'Danh mục công việc'}
+            onChange={(e) => {
+              setJob(e.target.value)
+            }}
+          >
+            <Typography sx={{ padding: '16px 16px' }}>
+              Danh mục công việc <span>{` (${jobs.length})`}</span>
+            </Typography>
+            {jobs.map((job) => (
+              <MenuItem className={styles.menu_item} key={job} value={job}>
+                {job}
+              </MenuItem>
+            ))}
+          </Select>
+        </FormControl>
+        <FormControl sx={{ width: '30%' }}>
+          <Select
+            labelId="demo-simple-select-label"
+            id="demo-simple-select"
+            hiddenLabel
+            value={price}
+            // placeholder="Danh mục công việc"
+            displayEmpty
+            renderValue={price !== '' ? undefined : () => 'Mức giá mong muốn'}
+            onChange={(e) => {
+              setPrice(e.target.value)
+            }}
+          >
+            <Typography sx={{ padding: '16px 16px' }}>
+              Danh mục công việc <span>{` (${prices.length})`}</span>
+            </Typography>
+            {prices.map((price) => (
+              <MenuItem key={price} value={price} className={styles.menu_item}>
+                {price}
+              </MenuItem>
+            ))}
+          </Select>
+        </FormControl>
+        <CustomButton
+          sx={{
+            width: { xs: '100%', lg: 'initial' },
+            backgroundColor: PRIMARY_COLOR,
+            whiteSpace: 'nowrap',
+          }}
+          startIcon={<SearchIcon />}
+        >
+          Tìm kiếm
+        </CustomButton>
       </Stack>
       <Footer />
     </>
-  );
+  )
 }

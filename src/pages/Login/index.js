@@ -55,12 +55,11 @@ const SignUp = () => {
     register,
     handleSubmit,
     control,
-    formState: { errors },
+    formState: { errors, isValid },
   } = useForm({
     resolver: yupResolver(schema),
     mode: 'onChange',
   })
-  console.log(errors)
   const onSubmit = (data) => console.log(data)
   return (
     <Grid container className={styles.login}>
@@ -183,7 +182,7 @@ const SignUp = () => {
             </Stack>
             <CustomButton
               type="submit"
-              disabled={!checked}
+              disabled={!isValid && !checked}
               className={styles.button}
               sx={{
                 width: { xs: '100%', lg: 'initial' },

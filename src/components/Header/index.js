@@ -51,7 +51,7 @@ export default function Header() {
       </Grid>
       <Grid item lg={6} xs={12}>
         <Stack
-          spacing={'40px'}
+          spacing={'24px'}
           direction={{ lg: 'row', xs: 'column' }}
           alignItems="center"
           justifyContent={{ lg: 'end' }}

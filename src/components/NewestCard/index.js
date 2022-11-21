@@ -4,6 +4,7 @@ import { PRIMARY_COLOR } from '../../utilities/constant'
 import CustomButton from '../CustomButton'
 import styles from './../NewestCard/NewestCard.module.css'
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder'
+import FavoriteIcon from '@mui/icons-material/Favorite'
 export default function NewestCard({
   name,
   content,
@@ -49,12 +50,21 @@ export default function NewestCard({
             }}
           />
         </Stack>
-        <FavoriteBorderIcon
-          sx={{ color: love ? PRIMARY_COLOR : 'initial', cursor: 'pointer' }}
-          onClick={() => {
-            setLove(!love)
-          }}
-        />
+        {love ? (
+          <FavoriteIcon
+            sx={{ color: PRIMARY_COLOR, cursor: 'pointer' }}
+            onClick={() => {
+              setLove(!love)
+            }}
+          />
+        ) : (
+          <FavoriteBorderIcon
+            sx={{ cursor: 'pointer' }}
+            onClick={() => {
+              setLove(!love)
+            }}
+          />
+        )}
       </Stack>
       <Typography className={styles.normal_text}>{content}</Typography>
       <Stack

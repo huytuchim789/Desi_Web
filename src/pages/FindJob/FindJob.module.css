@@ -1,3 +1,6 @@
-.findJob{
-    padding: 10px 120px;
+.findJob {
+  padding: 10px 120px;
+}
+.menu_item:hover {
+  font-weight: 700 !important ;
 }
