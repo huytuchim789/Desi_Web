@@ -1,4 +1,4 @@
-@import './../../scss/constant.css';
+@import "./../../scss/constant.css";
 
 .normal_text {
   font-weight: 400 !important;
@@ -80,3 +80,20 @@
   color: #ff4842 !important;
   margin: 2px 0 0 0;
 } */
+.login :global(.MuiToggleButtonGroup-groupedHorizontal) {
+  width: 48% !important;
+}
+.login :global(.MuiToggleButtonGroup-root) {
+  display: flex;
+  justify-content: space-between;
+}
+.login :global(.MuiToggleButton-primary) {
+  font-weight: 700;
+  font-size: 15px;
+  line-height: 26px;
+
+  color: #212b36;
+}
+.login :global(.MuiToggleButtonGroup-grouped:not(:first-of-type)) {
+  border-left: 1px solid rgba(0, 0, 0, 0.12) !important;
+}

@@ -4,3 +4,13 @@
 .menu_item:hover {
   font-weight: 700 !important ;
 }
+.main {
+  background: #bababa;
+  height: 100vh;
+}
+/* .slider {
+  width: 100% !important;
+} */
+:global(.MuiToggleButtonGroup-grouped) {
+  width: 100% !important;
+}

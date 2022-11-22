@@ -48,26 +48,6 @@ label[data-shrink='false'] span {
 .MuiCheckbox-root {
   padding: 0 !important;
 }
-.MuiToggleButtonGroup-groupedHorizontal {
-  width: 48% !important;
-}
-.MuiToggleButtonGroup-root {
-  display: flex;
-  justify-content: space-between;
-}
-.MuiToggleButton-primary {
-  font-weight: 700;
-  font-size: 15px;
-  line-height: 26px;
-  /* identical to box height, or 173% */
-
-  /* 11 Text Color/Light/01 Text Primary */
-
-  color: #212b36;
-}
-.MuiToggleButtonGroup-grouped:not(:first-of-type) {
-  border-left: 1px solid rgba(0, 0, 0, 0.12) !important;
-}
 
 .Mui-selected {
   color: var(--primary_color) !important;
