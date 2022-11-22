@@ -5,12 +5,32 @@
   font-weight: 700 !important ;
 }
 .main {
-  background: #bababa;
-  height: 100vh;
+  background: #f4f6f8;
+  padding: 60px 120px;
 }
 /* .slider {
   width: 100% !important;
 } */
-:global(.MuiToggleButtonGroup-grouped) {
+/* :global(.MuiToggleButtonGroup-grouped) {
   width: 100% !important;
+} */
+.main :global(.MuiToggleButtonGroup-root) {
+  display: flex;
+  justify-content: space-between;
+}
+.main :global(.MuiToggleButton-primary) {
+  font-weight: 700;
+  font-size: 15px;
+  line-height: 26px;
+  background: rgba(0, 171, 85, 0.08);
+  border-radius: 8px !important;
+  color: #212b36;
+}
+.main :global(.MuiToggleButtonGroup-grouped:not(:first-of-type)) {
+  border-left: 1px solid rgba(0, 0, 0, 0.12) !important;
+}
+.main :global(.Mui-selected) {
+  color: #ffffff !important;
+  border-left: 1px solid var(--primary_color) !important;
+  background: var(--primary_color) !important;
 }

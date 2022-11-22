@@ -16,43 +16,43 @@ import {
   ToggleButton,
   ToggleButtonGroup,
   Typography,
-} from "@mui/material";
-import { Stack } from "@mui/system";
-import React, { useState } from "react";
-import img from "images/login/bro.svg";
-import styles from "./../Login/login.module.css";
-import Logo from "images/logo.svg";
-import { Controller, useForm } from "react-hook-form";
-import { yupResolver } from "@hookform/resolvers/yup";
-import * as yup from "yup";
-import { Visibility } from "@mui/icons-material";
-import CustomButton from "components/CustomButton";
-import { PRIMARY_COLOR } from "utilities/constant";
-import Facebook from "./../../images/login/ic_facebbook.svg";
-import Google from "./../../images/login/ic_google.svg";
-import Linkedln from "./../../images/login/ic_linkedin.svg";
+} from '@mui/material'
+import { Stack } from '@mui/system'
+import React, { useState } from 'react'
+import img from 'images/login/bro.svg'
+import styles from './../SignUp/login.module.css'
+import Logo from 'images/logo.svg'
+import { Controller, useForm } from 'react-hook-form'
+import { yupResolver } from '@hookform/resolvers/yup'
+import * as yup from 'yup'
+import { Visibility } from '@mui/icons-material'
+import CustomButton from 'components/CustomButton'
+import { PRIMARY_COLOR } from 'utilities/constant'
+import Facebook from './../../images/login/ic_facebbook.svg'
+import Google from './../../images/login/ic_google.svg'
+import Linkedln from './../../images/login/ic_linkedin.svg'
 
-const label = { inputProps: { "aria-label": "Checkbox demo" } };
-const requiredMessage = "Nội dung chưa được nhập";
+const label = { inputProps: { 'aria-label': 'Checkbox demo' } }
+const requiredMessage = 'Nội dung chưa được nhập'
 const schema = yup
   .object({
     name: yup.string().required(requiredMessage),
     email: yup
       .string()
-      .email("Bạn chưa nhập đúng định dạng email")
+      .email('Bạn chưa nhập đúng định dạng email')
       .required(requiredMessage),
     password: yup.string().required(requiredMessage),
     password_confirmation: yup.string().required(requiredMessage),
   })
-  .required();
+  .required()
 const Login = () => {
-  const [alignment, setAlignment] = React.useState("1");
-  const [showPassword, setShowPassword] = useState(false);
-  const [showAgainPassword, setAgainShowPassword] = useState(false);
-  const [checked, setChecked] = useState(false);
+  const [alignment, setAlignment] = React.useState('1')
+  const [showPassword, setShowPassword] = useState(false)
+  const [showAgainPassword, setAgainShowPassword] = useState(false)
+  const [checked, setChecked] = useState(false)
   const handleChange = (event, newAlignment) => {
-    setAlignment(newAlignment);
-  };
+    setAlignment(newAlignment)
+  }
   const {
     register,
     handleSubmit,
@@ -60,28 +60,32 @@ const Login = () => {
     formState: { errors },
   } = useForm({
     resolver: yupResolver(schema),
-    mode: "onChange",
-  });
-  console.log(errors);
-  const onSubmit = (data) => console.log(data);
+    mode: 'onChange',
+  })
+  console.log(errors)
+  const onSubmit = (data) => console.log(data)
   return (
     <Grid container className={styles.login}>
-      <Grid item lg={5} sx={{ background: "rgba(145, 158, 171, 0.08)" }}>
+      <Grid item lg={5} sx={{ background: 'rgba(145, 158, 171, 0.08)' }}>
         <Stack
           alignItems="center"
           justifyContent="center"
-          sx={{ height: "100%" }}
+          sx={{ height: '100%' }}
           spacing="30px"
         >
           <img src={img} alt="" />
           <Typography variant="h4">Hỗ trợ Người tìm việc</Typography>
-          <Typography variant="body2" className={styles.normal_text}>
+          <Typography
+            variant="body2"
+            className={styles.normal_text}
+            align="center"
+          >
             Nhà tuyển dụng chủ động tìm kiếm và liên hệ với bạn qua hệ thống kết
             nối ứng viên thông minh.
           </Typography>
         </Stack>
       </Grid>
-      <Grid item lg={7} sx={{ padding: "60px 150px" }}>
+      <Grid item lg={7} sx={{ padding: '60px 150px' }}>
         <Stack spacing="15px">
           <img src={Logo} alt="" className={styles.logo} />
           <Typography variant="h6">Chào mừng bạn đến với Desi!</Typography>
@@ -92,14 +96,14 @@ const Login = () => {
           <Typography
             variant="body2"
             className={styles.normal_text}
-            sx={{ marginTop: "30px" }}
+            sx={{ marginTop: '30px' }}
           >
             Để tối ưu tốt nhất cho trải nghiệm của bạn với Desi, vui lòng lựa
             chọn nhóm phù hợp nhất với bạn
-            <span style={{ color: "red" }}>*</span>
+            <span style={{ color: 'red' }}>*</span>
           </Typography>
         </Stack>
-        <form onSubmit={handleSubmit(onSubmit)} style={{ marginTop: "30px" }}>
+        <form onSubmit={handleSubmit(onSubmit)} style={{ marginTop: '30px' }}>
           <Stack spacing="25px">
             <ToggleButtonGroup
               fullWidth
@@ -151,7 +155,7 @@ const Login = () => {
               name="password"
               render={({ field }) => (
                 <FormControl
-                  sx={{ m: 1, width: "100%" }}
+                  sx={{ m: 1, width: '100%' }}
                   variant="outlined"
                   required
                   error={!!errors.password}
@@ -163,17 +167,17 @@ const Login = () => {
                     // ref={ref}
                     {...field}
                     id="outlined-adornment-password1"
-                    type={showPassword ? "text" : "password"}
+                    type={showPassword ? 'text' : 'password'}
                     label="Mật khẩu"
                     endAdornment={
                       <InputAdornment position="end">
                         <IconButton
                           aria-label="toggle password visibility"
                           onClick={() => {
-                            setShowPassword(!showPassword);
+                            setShowPassword(!showPassword)
                           }}
                           onMouseDown={(e) => {
-                            e.preventDefault();
+                            e.preventDefault()
                           }}
                           edge="end"
                         >
@@ -195,7 +199,7 @@ const Login = () => {
               }}
               name="password_confirmation"
               render={({ field: { onChange, onBlur, value, name, ref } }) => (
-                <FormControl sx={{ m: 1, width: "100%" }} variant="outlined">
+                <FormControl sx={{ m: 1, width: '100%' }} variant="outlined">
                   <InputLabel htmlFor="outlined-adornment-password2" required>
                     Nhập lại Mật Khẩu
                   </InputLabel>
@@ -204,7 +208,7 @@ const Login = () => {
                     name={name}
                     InputLabelProps={{ required: false }}
                     id="outlined-adornment-password2"
-                    type={showAgainPassword ? "text" : "password"}
+                    type={showAgainPassword ? 'text' : 'password'}
                     value={value}
                     onChange={onChange}
                     endAdornment={
@@ -212,10 +216,10 @@ const Login = () => {
                         <IconButton
                           aria-label="toggle password visibility"
                           onClick={() => {
-                            setAgainShowPassword(!showAgainPassword);
+                            setAgainShowPassword(!showAgainPassword)
                           }}
                           onMouseDown={(e) => {
-                            e.preventDefault();
+                            e.preventDefault()
                           }}
                           edge="end"
                         >
@@ -234,7 +238,7 @@ const Login = () => {
             <FormControlLabel
               control={<Checkbox checked={checked} />}
               onChange={() => {
-                setChecked(!checked);
+                setChecked(!checked)
               }}
               defaultChecked={checked}
               label={
@@ -256,9 +260,9 @@ const Login = () => {
               disabled={!checked}
               className={styles.button}
               sx={{
-                width: { xs: "100%", lg: "initial" },
+                width: { xs: '100%', lg: 'initial' },
                 backgroundColor: PRIMARY_COLOR,
-                whiteSpace: "nowrap",
+                whiteSpace: 'nowrap',
               }}
               href="/confirm"
             >
@@ -266,8 +270,8 @@ const Login = () => {
             </CustomButton>
           </Stack>
         </form>
-        <Divider sx={{ marginTop: "20px", marginBottom: "20px" }}>Hoặc</Divider>
-        <ButtonGroup fullWidth sx={{ justifyContent: "space-between" }}>
+        <Divider sx={{ marginTop: '20px', marginBottom: '20px' }}>Hoặc</Divider>
+        <ButtonGroup fullWidth sx={{ justifyContent: 'space-between' }}>
           <Button className={styles.logo_btn}>
             <img src={Facebook} />
           </Button>
@@ -280,7 +284,7 @@ const Login = () => {
         </ButtonGroup>
       </Grid>
     </Grid>
-  );
-};
+  )
+}
 
-export default Login;
+export default Login

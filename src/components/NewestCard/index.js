@@ -5,6 +5,7 @@ import CustomButton from '../CustomButton'
 import styles from './../NewestCard/NewestCard.module.css'
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder'
 import FavoriteIcon from '@mui/icons-material/Favorite'
+import formatThousands from 'format-thousands'
 export default function NewestCard({
   name,
   content,
@@ -41,14 +42,6 @@ export default function NewestCard({
           >
             {name}
           </Typography>
-          <Chip
-            label="Mới nhất"
-            sx={{
-              color: '#fff',
-              backgroundColor: '#1890FF',
-              maxWidth: { lg: 'initial', xs: '100px' },
-            }}
-          />
         </Stack>
         {love ? (
           <FavoriteIcon
@@ -66,7 +59,39 @@ export default function NewestCard({
           />
         )}
       </Stack>
+
+      <Stack
+        direction="row"
+        justifyContent="space-between"
+        style={{ color: '#637381' }}
+      >
+        <Stack direction="row" alignItems="center" spacing="15px">
+          <Chip
+            label="Mới nhất"
+            sx={{
+              color: '#fff',
+              backgroundColor: '#1890FF',
+              maxWidth: { lg: 'initial', xs: '100px' },
+            }}
+          />
+          <Typography className={styles.normal_text}>
+            Cập nhật {hour} giờ trước
+          </Typography>
+        </Stack>
+        <Typography className={styles.normal_text}>
+          Còn <span style={{ fontWeight: '700' }}>{date}</span> ngày trước
+        </Typography>
+      </Stack>
       <Typography className={styles.normal_text}>{content}</Typography>
+      <Typography
+        sx={{
+          typography: { lg: 'h5', xs: 'body1' },
+          fontWeight: '400',
+          display: { lg: 'initial', xs: 'none' },
+        }}
+      >
+        {`${formatThousands(salary, { separator: '.' })} VNĐ`}
+      </Typography>
       <Stack
         direction={{ lg: 'row' }}
         alignItems={{ lg: 'center', xs: 'start' }}
@@ -76,7 +101,15 @@ export default function NewestCard({
           <Avatar src={avatar} />
           <Typography variant="body2">{company}</Typography>
         </Stack>
-        <Typography
+        <CustomButton
+          className={`${styles.button} ${
+            hovering ? styles.show : styles.unShow
+          }`}
+          sx={{ backgroundColor: PRIMARY_COLOR }}
+        >
+          Xem chi tiết
+        </CustomButton>
+        {/* <Typography
           sx={{
             typography: { lg: 'h5', xs: 'body1' },
             fontWeight: '400',
@@ -84,14 +117,14 @@ export default function NewestCard({
           }}
         >
           {salary}
-        </Typography>
+        </Typography> */}
       </Stack>
       <Stack
         direction={{ lg: 'row', xs: 'column' }}
         justifyContent="space-between"
         spacing={{ xs: '20px' }}
       >
-        <Stack direction="row" spacing="12px">
+        {/* <Stack direction="row" spacing="12px">
           {tags.map((t) => (
             <Chip
               label={t}
@@ -101,27 +134,7 @@ export default function NewestCard({
               }}
             />
           ))}
-        </Stack>
-        <CustomButton
-          className={`${styles.button} ${
-            hovering ? styles.show : styles.unShow
-          }`}
-          sx={{ backgroundColor: PRIMARY_COLOR }}
-        >
-          Xem chi tiết
-        </CustomButton>
-      </Stack>
-      <Stack
-        direction="row"
-        justifyContent="space-between"
-        style={{ color: '#637381' }}
-      >
-        <Typography className={styles.normal_text}>
-          Cập nhật {hour} giờ trước
-        </Typography>
-        <Typography className={styles.normal_text}>
-          Còn <span style={{ fontWeight: '700' }}>{date}</span> ngày trước
-        </Typography>
+        </Stack> */}
       </Stack>
     </Stack>
   )

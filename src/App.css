@@ -49,11 +49,7 @@ label[data-shrink='false'] span {
   padding: 0 !important;
 }
 
-.Mui-selected {
-  color: var(--primary_color) !important;
-  border: 1px solid var(--primary_color) !important;
-  border-left: 1px solid var(--primary_color) !important;
-}
+
 .Mui-checked {
   color: var(--primary_color) !important;
 }

@@ -73,7 +73,11 @@ const SignUp = () => {
         >
           <img src={img} alt="" />
           <Typography variant="h4">Hỗ trợ Người tìm việc</Typography>
-          <Typography variant="body2" className={styles.normal_text}>
+          <Typography
+            variant="body2"
+            className={styles.normal_text}
+            align="center"
+          >
             Nhà tuyển dụng chủ động tìm kiếm và liên hệ với bạn qua hệ thống kết
             nối ứng viên thông minh.
           </Typography>

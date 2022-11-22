@@ -15,174 +15,22 @@ export default function Newest() {
         <span style={{ color: PRIMARY_COLOR }}> mới nhất</span>
       </Typography>
       <Grid container rowSpacing={'50px'} columnSpacing={'50px'}>
-        <Grid item lg={6} xs={12}>
-          <NewestCard
-            name={'Chuyên viên thiết kế đồ họa '}
-            content={
-              'Thiết kế các sản phẩm truyền thông như banner, poster, catalog, thư mời,... cho sự kiện truyền thông sản phẩm mới ...'
-            }
-            company="Công ty TNHH Graphic Design"
-            avatar={ava}
-            salary={'2-4 triệu đồng'}
-            tags={['2-4 triệu đồng', 'Hà Nội', 'Graphic Designer']}
-            hour={8}
-            date={9}
-          />
-        </Grid>
-        <Grid item lg={6} xs={12}>
-          <NewestCard
-            name={'Chuyên viên thiết kế đồ họa '}
-            content={
-              'Thiết kế các sản phẩm truyền thông như banner, poster, catalog, thư mời,... cho sự kiện truyền thông sản phẩm mới ...'
-            }
-            company="Công ty TNHH Graphic Design"
-            avatar={ava}
-            salary={'2-4 triệu đồng'}
-            tags={['2-4 triệu đồng', 'Hà Nội', 'Graphic Designer']}
-            hour={8}
-            date={9}
-          />
-        </Grid>
-        <Grid item lg={6} xs={12}>
-          <NewestCard
-            name={'Chuyên viên thiết kế đồ họa '}
-            content={
-              'Thiết kế các sản phẩm truyền thông như banner, poster, catalog, thư mời,... cho sự kiện truyền thông sản phẩm mới ...'
-            }
-            company="Công ty TNHH Graphic Design"
-            avatar={ava}
-            salary={'2-4 triệu đồng'}
-            tags={['2-4 triệu đồng', 'Hà Nội', 'Graphic Designer']}
-            hour={8}
-            date={9}
-          />
-        </Grid>
-        <Grid item lg={6} xs={12}>
-          <NewestCard
-            name={'Chuyên viên thiết kế đồ họa '}
-            content={
-              'Thiết kế các sản phẩm truyền thông như banner, poster, catalog, thư mời,... cho sự kiện truyền thông sản phẩm mới ...'
-            }
-            company="Công ty TNHH Graphic Design"
-            avatar={ava}
-            salary={'2-4 triệu đồng'}
-            tags={['2-4 triệu đồng', 'Hà Nội', 'Graphic Designer']}
-            hour={8}
-            date={9}
-          />
-        </Grid>
-        <Grid item lg={6} xs={12}>
-          <NewestCard
-            name={'Chuyên viên thiết kế đồ họa '}
-            content={
-              'Thiết kế các sản phẩm truyền thông như banner, poster, catalog, thư mời,... cho sự kiện truyền thông sản phẩm mới ...'
-            }
-            company="Công ty TNHH Graphic Design"
-            avatar={ava}
-            salary={'2-4 triệu đồng'}
-            tags={['2-4 triệu đồng', 'Hà Nội', 'Graphic Designer']}
-            hour={8}
-            date={9}
-          />
-        </Grid>
-        <Grid item lg={6} xs={12}>
-          <NewestCard
-            name={'Chuyên viên thiết kế đồ họa '}
-            content={
-              'Thiết kế các sản phẩm truyền thông như banner, poster, catalog, thư mời,... cho sự kiện truyền thông sản phẩm mới ...'
-            }
-            company="Công ty TNHH Graphic Design"
-            avatar={ava}
-            salary={'2-4 triệu đồng'}
-            tags={['2-4 triệu đồng', 'Hà Nội', 'Graphic Designer']}
-            hour={8}
-            date={9}
-          />
-        </Grid>
-        <Grid item lg={6} xs={12}>
-          <NewestCard
-            name={'Chuyên viên thiết kế đồ họa '}
-            content={
-              'Thiết kế các sản phẩm truyền thông như banner, poster, catalog, thư mời,... cho sự kiện truyền thông sản phẩm mới ...'
-            }
-            company="Công ty TNHH Graphic Design"
-            avatar={ava}
-            salary={'2-4 triệu đồng'}
-            tags={['2-4 triệu đồng', 'Hà Nội', 'Graphic Designer']}
-            hour={8}
-            date={9}
-          />
-        </Grid>
-        <Grid item lg={6} xs={12}>
-          <NewestCard
-            name={'Chuyên viên thiết kế đồ họa '}
-            content={
-              'Thiết kế các sản phẩm truyền thông như banner, poster, catalog, thư mời,... cho sự kiện truyền thông sản phẩm mới ...'
-            }
-            company="Công ty TNHH Graphic Design"
-            avatar={ava}
-            salary={'2-4 triệu đồng'}
-            tags={['2-4 triệu đồng', 'Hà Nội', 'Graphic Designer']}
-            hour={8}
-            date={9}
-          />
-        </Grid>
-        <Grid item lg={6} xs={12}>
-          <NewestCard
-            name={'Chuyên viên thiết kế đồ họa '}
-            content={
-              'Thiết kế các sản phẩm truyền thông như banner, poster, catalog, thư mời,... cho sự kiện truyền thông sản phẩm mới ...'
-            }
-            company="Công ty TNHH Graphic Design"
-            avatar={ava}
-            salary={'2-4 triệu đồng'}
-            tags={['2-4 triệu đồng', 'Hà Nội', 'Graphic Designer']}
-            hour={8}
-            date={9}
-          />
-        </Grid>
-        <Grid item lg={6} xs={12}>
-          <NewestCard
-            name={'Chuyên viên thiết kế đồ họa '}
-            content={
-              'Thiết kế các sản phẩm truyền thông như banner, poster, catalog, thư mời,... cho sự kiện truyền thông sản phẩm mới ...'
-            }
-            company="Công ty TNHH Graphic Design"
-            avatar={ava}
-            salary={'2-4 triệu đồng'}
-            tags={['2-4 triệu đồng', 'Hà Nội', 'Graphic Designer']}
-            hour={8}
-            date={9}
-          />
-        </Grid>
-        <Grid item lg={6} xs={12}>
-          <NewestCard
-            name={'Chuyên viên thiết kế đồ họa '}
-            content={
-              'Thiết kế các sản phẩm truyền thông như banner, poster, catalog, thư mời,... cho sự kiện truyền thông sản phẩm mới ...'
-            }
-            company="Công ty TNHH Graphic Design"
-            avatar={ava}
-            salary={'2-4 triệu đồng'}
-            tags={['2-4 triệu đồng', 'Hà Nội', 'Graphic Designer']}
-            hour={8}
-            date={9}
-          />
-        </Grid>
-        <Grid item lg={6} xs={12}>
-          <NewestCard
-            name={'Chuyên viên thiết kế đồ họa '}
-            content={
-              'Thiết kế các sản phẩm truyền thông như banner, poster, catalog, thư mời,... cho sự kiện truyền thông sản phẩm mới ...'
-            }
-            company="Công ty TNHH Graphic Design"
-            avatar={ava}
-            salary={'2-4 triệu đồng'}
-            tags={['2-4 triệu đồng', 'Hà Nội', 'Graphic Designer']}
-            hour={8}
-            date={9}
-          />
-        </Grid>
+        {Array.from({ length: 12 }, (_, i) => i + 1).map((e) => (
+          <Grid item lg={6} xs={12}>
+            <NewestCard
+              name={'Chuyên viên thiết kế đồ họa '}
+              content={
+                'Thiết kế các sản phẩm truyền thông như banner, poster, catalog, thư mời,... cho sự kiện truyền thông sản phẩm mới ...'
+              }
+              company="Công ty TNHH Graphic Design"
+              avatar={ava}
+              salary={2000000}
+              tags={['2-4 triệu đồng', 'Hà Nội', 'Graphic Designer']}
+              hour={8}
+              date={9}
+            />
+          </Grid>
+        ))}
       </Grid>
     </Box>
   )
