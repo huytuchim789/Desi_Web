@@ -5,3 +5,8 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+* {
+  box-sizing: border-box !important;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+}

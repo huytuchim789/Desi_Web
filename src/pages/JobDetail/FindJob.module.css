@@ -1,0 +1,140 @@
+.findJob {
+  padding: 10px 120px;
+}
+.menu_item:hover {
+  font-weight: 700 !important ;
+}
+.main {
+  background: #f4f6f8;
+  padding: 60px 120px;
+}
+/* .slider {
+  width: 100% !important;
+} */
+/* :global(.MuiToggleButtonGroup-grouped) {
+  width: 100% !important;
+} */
+.main :global(.MuiToggleButtonGroup-root) {
+  display: flex;
+  justify-content: space-between;
+}
+.main :global(.MuiToggleButton-primary) {
+  font-weight: 700;
+  font-size: 15px;
+  line-height: 26px;
+  background: rgba(0, 171, 85, 0.08);
+  border-radius: 8px !important;
+  color: #212b36;
+}
+.main :global(.MuiToggleButtonGroup-grouped:not(:first-of-type)) {
+  border-left: 1px solid rgba(0, 0, 0, 0.12) !important;
+}
+.main :global(.Mui-selected) {
+  color: #ffffff !important;
+  border-left: 1px solid var(--primary_color) !important;
+  background: var(--primary_color) !important;
+}
+
+.container {
+  width: 100%;
+  background-color: white;
+  padding: 27px 40px;
+  box-sizing: border-box;
+}
+
+.normal_text {
+  font-weight: 500 !important;
+  font-size: 20px !important;
+  line-height: 30px !important;
+  /* identical to box height, or 150% */
+
+  /* 11 Text Color/Light/01 Text Primary */
+
+  color: #212b36 !important;
+}
+
+.gray_text {
+  font-weight: 400 !important;
+  font-size: 14px !important;
+  line-height: 22px !important;
+  /* identical to box height, or 157% */
+
+  /* 11 Text Color/Light/02 Text Secondary */
+
+  color: #637381;
+}
+
+.buttons {
+  border-radius: 8px !important;
+  color: #00ab55 !important;
+  border: 1px solid #00ab55 !important;
+}
+.buttons:hover {
+}
+.btn_padding {
+  padding: 10px 60px !important;
+}
+.box1 {
+  border: 1px solid #dfe3e8;
+  border-radius: 8px;
+  padding: 20px;
+}
+
+.main :global(li::marker) {
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+  /* or 150% */
+
+  /* 11 Text Color/Light/02 Text Secondary */
+
+  color: #637381;
+}
+.main :global(li ~ li) {
+  margin-top: 8px;
+}
+.main :global(li) {
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+  /* or 150% */
+
+  /* 11 Text Color/Light/02 Text Secondary */
+
+  color: #637381;
+}
+.orange_btn {
+  background: #ffc107 !important;
+  /* 01 Shadows/Color/05 Warning */
+  padding: 6px 83px !important;
+  box-shadow: 0px 8px 16px rgba(255, 193, 7, 0.24);
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 24px;
+  /* identical to box height, or 171% */
+
+  display: flex;
+  align-items: center;
+  text-align: center;
+
+  /* 07 Grey/800 */
+
+  color: #212b36;
+}
+.orange_btn:hover {
+  background: #b78103 !important;
+}
+.chip {
+  background: rgba(145, 158, 171, 0.16) !important;
+  border-radius: 6px !important;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 20px;
+  /* identical to box height, or 167% */
+
+  text-align: center;
+
+  /* 11 Text Color/Light/02 Text Secondary */
+
+  color: #637381;
+}

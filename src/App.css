@@ -49,7 +49,6 @@ label[data-shrink='false'] span {
   padding: 0 !important;
 }
 
-
 .Mui-checked {
   color: var(--primary_color) !important;
 }
@@ -94,7 +93,7 @@ label[data-shrink='false'] span {
 }
 
 .MuiPaper-root {
-  background: #ffffff !important;
+  /* background: #ffffff !important; */
   border-radius: 12px !important;
 }
 .MuiSelect-select {
