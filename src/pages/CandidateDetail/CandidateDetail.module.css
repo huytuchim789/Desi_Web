@@ -3,3 +3,17 @@
   height: 302px;
   object-fit: cover;
 }
+.candi {
+  padding: 0 120px 0px;
+}
+.normal_text {
+  font-weight: 500 !important;
+  font-size: 20px !important;
+  line-height: 30px !important;
+  /* identical to box height, or 150% */
+
+  /* 11 Text Color/Light/01 Text Primary */
+
+  color: #212b36 !important;
+  padding: 30px !important;
+}
