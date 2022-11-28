@@ -1,0 +1,25 @@
+.main {
+  border-bottom: 1px solid #dfe3e8;
+  border-top: 1px solid #dfe3e8;
+}
+.normal_text {
+  font-weight: 500 !important;
+  font-size: 20px !important;
+  line-height: 30px;
+  /* or 150% */
+
+  /* 11 Text Color/Light/01 Text Primary */
+
+  color: #212b36;
+}
+.buttons {
+  border-radius: 8px !important;
+  background-color: #dfe3e8 !important;
+  /* 01 Shadows/Light/z8 */
+  padding: 11px 65px !important;
+
+  box-shadow: 0px 8px 16px rgba(145, 158, 171, 0.16);
+}
+.buttons:hover {
+  background: #c4cdd5 !important;
+}
