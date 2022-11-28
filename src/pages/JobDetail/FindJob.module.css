@@ -80,7 +80,7 @@
   padding: 20px;
 }
 
-.main :global(li::marker) {
+.list :global(li::marker) {
   font-weight: 400;
   font-size: 16px;
   line-height: 24px;
@@ -90,10 +90,10 @@
 
   color: #637381;
 }
-.main :global(li ~ li) {
+.list :global(li ~ li) {
   margin-top: 8px;
 }
-.main :global(li) {
+.list :global(li) {
   font-weight: 400;
   font-size: 16px;
   line-height: 24px;
