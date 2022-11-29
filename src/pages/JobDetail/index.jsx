@@ -408,6 +408,7 @@ export default function JobDetail() {
             container
             justifyContent="space-between"
             // spacing={3}
+            className={styles.list}
             sx={{
               borderTop: "1px dashed #dfe3e8",
               width: "100%",

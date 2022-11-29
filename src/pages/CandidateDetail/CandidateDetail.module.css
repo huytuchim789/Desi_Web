@@ -4,7 +4,7 @@
   object-fit: cover;
 }
 .candi {
-  padding: 0 120px 0px;
+  padding: 0 0 80px 120px;
 }
 .normal_text {
   font-weight: 500 !important;
@@ -15,5 +15,9 @@
   /* 11 Text Color/Light/01 Text Primary */
 
   color: #212b36 !important;
-  padding: 30px !important;
+  padding: 40px !important;
+}
+.candi :global(.Mui-selected) {
+  color: #ffffff !important;
+  background: var(--primary_color) !important;
 }
