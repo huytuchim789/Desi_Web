@@ -8,7 +8,7 @@ import {
   Stack,
   Typography,
 } from '@mui/material'
-import React from 'react'
+import React, { useState } from 'react'
 import styles from './../CustomCard/CustomCard.module.css'
 import ava from 'images/Outstanding/ttn.svg'
 import location from 'images/candidates/ic_location.svg'
@@ -23,6 +23,7 @@ import l5 from 'images/candidates/ic_call.svg'
 import Facebook from 'images/Social Media.svg'
 import Youtube from 'images/Social Media (2).svg'
 import Linkedln from 'images/Social Media (3).svg'
+import CustomModal from 'components/CandidateModal'
 
 const posters = [
   'Poster',
@@ -38,9 +39,12 @@ const posters = [
 
 export default function CustomCard() {
   const [value, setValue] = React.useState(2)
+  const [open, setOpen] = useState(false)
 
   return (
     <Stack alignItems="center" className={styles.card}>
+      <CustomModal open={open} setOpen={setOpen} />
+
       <Avatar src={ava} sx={{ width: '136px', height: '136px' }} />
       <Stack alignItems="center" spacing="25px">
         <Typography fontWeight={500} variant="h4">
@@ -72,6 +76,9 @@ export default function CustomCard() {
               width: { xs: '100%', lg: '50%' },
               backgroundColor: PRIMARY_COLOR,
               whiteSpace: 'nowrap',
+            }}
+            onClick={() => {
+              setOpen(true)
             }}
           >
             Liên hệ ứng viên

@@ -57,7 +57,7 @@ const Login = () => {
     register,
     handleSubmit,
     control,
-    formState: { errors },
+    formState: { errors, isValid },
   } = useForm({
     resolver: yupResolver(schema),
     mode: 'onChange',
@@ -257,7 +257,7 @@ const Login = () => {
             />
             <CustomButton
               type="submit"
-              disabled={!checked}
+              disabled={!(isValid && checked)}
               className={styles.button}
               sx={{
                 width: { xs: '100%', lg: 'initial' },

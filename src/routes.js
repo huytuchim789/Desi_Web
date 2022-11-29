@@ -15,5 +15,5 @@ export const routes = [
   { path: "/confirm", element: <Confirmation /> },
   { path: "/findJob", element: <FindJob /> },
   { path: "/jobDetail", element: <JobDetail /> },
-  { path: "/candidates", element: <CandidateDetail /> },
+  { path: "/candidate", element: <CandidateDetail /> },
 ];

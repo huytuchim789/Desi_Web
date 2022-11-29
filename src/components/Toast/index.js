@@ -24,7 +24,7 @@ export default function CustomizedSnackbars({ message, open, setOpen }) {
       className={styles.toast}
       anchorOrigin={{ vertical: 'top', horizontal: 'center' }}
       open={open}
-      autoHideDuration={6000}
+      autoHideDuration={3000}
       onClose={handleClose}
     >
       <Alert

@@ -49,52 +49,7 @@ const settings = {
     },
   ],
 };
-const settings2 = {
-  infinite: false,
-  speed: 500,
-  slidesToShow: 1,
-  slidesToScroll: 1,
-  prevArrow: <></>,
-  nextArrow: <></>,
-  centerMode: true,
-  dots: true,
-};
-const CssTextField = withStyles({
-  root: {
-    "& label.Mui-focused": {
-      color: "white",
-    },
 
-    "& .MuiInput-underline:after": {
-      borderBottomColor: "white",
-    },
-    "& .MuiOutlinedInput-root": {
-      "& fieldset": {
-        borderColor: "white",
-      },
-      "& notchedOutline": {
-        color: "white",
-      },
-      "&:hover fieldset": {
-        borderColor: "white",
-      },
-      "&.Mui-focused fieldset": {
-        borderColor: "white",
-      },
-    },
-  },
-  input: {
-    "&:hover $notchedOutline": {
-      borderColor: "white",
-    },
-    "&$focused $notchedOutline": {
-      borderColor: "white",
-    },
-  },
-  notchedOutline: {
-    borderColor: "white",
-  },
-})(TextField);
 const cards = [
   { job: "Art Design", name: "Thu Trang Nguyen ", img: img1, avatar: ava },
   { job: "Art Design", name: "Thu Trang Nguyen ", img: img1, avatar: ava },
