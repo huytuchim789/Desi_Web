@@ -186,7 +186,7 @@ const SignUp = () => {
             </Stack>
             <CustomButton
               type="submit"
-              disabled={!isValid && !checked}
+              disabled={!isValid}
               className={styles.button}
               sx={{
                 width: { xs: '100%', lg: 'initial' },

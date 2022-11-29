@@ -1,0 +1,35 @@
+.project {
+  width: 100%;
+  padding: 40px;
+}
+.normal_text {
+  font-weight: 400 !important;
+  font-size: 12px !important;
+  line-height: 18px !important;
+  /* identical to box height, or 150% */
+
+  /* 11 Text Color/Light/01 Text Primary */
+
+  color: #212b36;
+}
+.project :global(.slick-list) {
+  width: 100%;
+}
+.gray_text {
+  font-weight: 400 !important;
+  font-size: 16px !important;
+  line-height: 24px !important;
+  /* or 150% */
+
+  /* 11 Text Color/Light/02 Text Secondary */
+}
+.project :global(.slick-prev) {
+  width: 90px;
+  height: 90px;
+  left: -42px;
+}
+.project :global(.slick-next) {
+  width: 90px;
+  height: 90px;
+  right: -45px;
+}

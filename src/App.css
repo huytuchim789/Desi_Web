@@ -63,6 +63,9 @@ label[data-shrink='false'] span {
   color: #ff4842 !important;
   margin: 2px 0 0 0 !important;
 }
+.MuiInputBase-input {
+  height: 100% !important;
+}
 .MuiFormControlLabel-root {
   margin-left: 0 !important;
 }
@@ -98,4 +101,26 @@ label[data-shrink='false'] span {
 }
 .MuiSelect-select {
   font-weight: 400 !important;
+}
+.rdw-editor-main {
+  height: 250px;
+  /* overflow: auto; */
+  box-sizing: border-box;
+  border-bottom-right-radius: 8px;
+  border-bottom-left-radius: 8px;
+  border: 1px solid rgba(145, 158, 171, 0.32);
+}
+.rdw-editor-toolbar {
+  border: 1px solid rgba(145, 158, 171, 0.32);
+  border-top-right-radius: 8px;
+  border-top-left-radius: 8px;
+  margin-bottom: 0;
+  border-bottom: none;
+}
+.public-DraftEditor-content {
+  padding: 14px;
+}
+
+.public-DraftEditorPlaceholder-root {
+  padding: 14px;
 }
