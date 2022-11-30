@@ -1,0 +1,32 @@
+.dashboard {
+  width: 100%;
+  padding: 50px 40px;
+}
+.normal_text {
+  font-size: 14px !important;
+  line-height: 22px !important;
+  /* identical to box height, or 157% */
+
+  /* 11 Text Color/Light/02 Text Secondary */
+
+  color: #637381;
+}
+.dashboard :global(.Mui-selected) {
+  color: #212b36 !important;
+}
+.dashboard :global(.MuiTabs-indicator) {
+  background: #00ab55 !important;
+  border-radius: 1px;
+}
+.dashboard :global(.Mui-selected) .normal_text {
+  color: #212b36 !important;
+}
+.tab_header {
+  background: #f4f6f8;
+  border-top-left-radius: 12px;
+  border-top-right-radius: 12px;
+}
+
+.dashboard :global(.MuiOutlinedInput-root) {
+  border: 1px solid rgba(145, 158, 171, 0.32) !important;
+}

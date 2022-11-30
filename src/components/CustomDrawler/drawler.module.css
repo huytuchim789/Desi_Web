@@ -1,0 +1,19 @@
+@import url('./../../scss/constant.css');
+
+.drawler {
+  padding: 40px 20px;
+  border-right: 1px dashed rgba(145, 158, 171, 0.24);
+}
+.drawler :global(.MuiTabs-indicator) {
+  display: none;
+}
+.drawler :global(.Mui-selected) {
+  color: var(--primary_color) !important;
+  background: rgba(0, 171, 85, 0.08);
+  border-radius: 8px;
+}
+.drawler :global(.MuiTab-root) {
+  justify-content: start !important;
+  column-gap: 20px;
+  min-height: 55px !important;
+}

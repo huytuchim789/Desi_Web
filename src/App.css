@@ -124,3 +124,6 @@ label[data-shrink='false'] span {
 .public-DraftEditorPlaceholder-root {
   padding: 14px;
 }
+.MuiTableCell-root {
+  border-bottom: none !important;
+}
