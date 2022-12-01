@@ -7,6 +7,7 @@ import FindJob from 'pages/FindJob'
 import JobDetail from 'pages/JobDetail'
 import CandidateDetail from './pages/CandidateDetail'
 import Dashboard from 'pages/Dashboard'
+import Profile from 'pages/Profile'
 
 export const routes = [
   { path: '/', element: <Home></Home> },
@@ -18,4 +19,5 @@ export const routes = [
   { path: '/jobDetail', element: <JobDetail /> },
   { path: '/candidate', element: <CandidateDetail /> },
   { path: '/dashboard', element: <Dashboard /> },
+  { path: '/profile', element: <Profile /> },
 ]
