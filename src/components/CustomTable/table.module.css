@@ -1,0 +1,15 @@
+.table :global(.MuiChip-label) {
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 20px;
+  /* identical to box height, or 167% */
+
+  text-align: center;
+
+  /* 08 Common/01 White */
+
+  color: #ffffff;
+}
+.table :global(.MuiChip-root) {
+  border-radius: 6px;
+}

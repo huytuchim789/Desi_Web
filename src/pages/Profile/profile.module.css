@@ -3,6 +3,7 @@
   padding: 50px 40px;
   border-left: 1px dashed rgba(145, 158, 171, 0.24);
   border-bottom: 1px solid #dfe3e8;
+  background: rgba(145, 158, 171, 0.08);
 }
 .normal_text {
   font-size: 14px !important;

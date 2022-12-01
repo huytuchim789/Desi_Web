@@ -136,3 +136,37 @@ export const cardsData = [
     date: 9,
   },
 ]
+
+export const WAITING = '#FFC107'
+export const ACCEPTED = '#00AB55'
+export const REJECTED = '#FF4842'
+export const dashboardData = [
+  {
+    title: 'Thiết kế sản phẩm truyền thông khoa học mạng máy tính internet ',
+    hr: 'Công ty TNHH Graphic Design 1',
+    deadline: '31/12/2022',
+    date: '31/12/2022',
+    status: 'wait',
+  },
+  {
+    title: 'Thiết kế sản phẩm truyền thông khoa học mạng máy tính internet ',
+    hr: 'Công ty TNHH Graphic Design 2',
+    deadline: '31/12/2022',
+    date: '31/12/2022',
+    status: 'accept',
+  },
+  {
+    title: 'Thiết kế sản phẩm truyền thông khoa học mạng máy tính internet ',
+    hr: 'Công ty TNHH Graphic Design 3',
+    deadline: '31/12/2022',
+    date: '31/12/2022',
+    status: 'reject',
+  },
+  {
+    title: 'Thiết kế sản phẩm truyền thông đồ cổ ',
+    hr: 'Công ty TNHH Graphic Design 4',
+    deadline: '31/12/2022',
+    date: '31/12/2022',
+    status: 'wait',
+  },
+]

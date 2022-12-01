@@ -8,116 +8,44 @@ import TableContainer from '@material-ui/core/TableContainer'
 import TableHead from '@material-ui/core/TableHead'
 import TablePagination from '@material-ui/core/TablePagination'
 import TableRow from '@material-ui/core/TableRow'
-import { tableCellClasses } from '@mui/material'
+import { Chip, tableCellClasses, Tooltip } from '@mui/material'
+import MailIcon from '@mui/icons-material/Mail'
+import { ACCEPTED, REJECTED, WAITING } from 'utilities/constant'
+import styles from './../CustomTable/table.module.css'
 const columns = [
-  { id: 'name', label: 'Name', minWidth: 170 },
-  { id: 'code', label: 'ISO\u00a0Code', minWidth: 100 },
+  { id: 'title', label: 'Tiêu đề việc làm', minWidth: 120, maxWidth: 130 },
+  { id: 'hr', label: 'Nhà tuyển dụng', minWidth: 100 },
   {
-    id: 'population',
-    label: 'Population',
-    minWidth: 170,
-    align: 'right',
+    id: 'deadline',
+    label: 'Hạn nộp hồ sơ',
+    minWidth: 100,
     format: (value) => value.toLocaleString(),
   },
   {
-    id: 'size',
-    label: 'Size\u00a0(km\u00b2)',
-    minWidth: 170,
-    align: 'right',
+    id: 'date',
+    label: 'Ngày ứng tuyển',
+    minWidth: 100,
     format: (value) => value.toLocaleString(),
   },
   {
-    id: 'density',
-    label: 'Density',
-    minWidth: 170,
-    align: 'right',
-    format: (value) => value.toFixed(2),
+    id: 'status',
+    label: 'Trạng thái',
+    minWidth: 120,
+    format: (value) => {
+      switch (value) {
+        case 'wait':
+          return <Chip label="Chờ phản hồi" sx={{ background: WAITING }}></Chip>
+        case 'reject':
+          return <Chip label="Bị từ chối " sx={{ background: REJECTED }}></Chip>
+        case 'accept':
+          return <Chip label="Đã nhận" sx={{ background: ACCEPTED }}></Chip>
+
+        default:
+          break
+      }
+    },
   },
 ]
-
-function createData(name, code, population, size) {
-  const density = population / size
-  return { name, code, population, size, density }
-}
-
-const countries = [
-  {
-    name: 'India',
-    code: 'IN',
-    population: 1324171354,
-    size: 3287263,
-  },
-  {
-    name: 'China',
-    code: 'CN',
-    population: 1403500365,
-    size: 9596961,
-  },
-  {
-    name: 'Italy',
-    code: 'IT',
-    population: 60483973,
-    size: 301340,
-  },
-  {
-    name: 'India',
-    code: 'IN2',
-    population: 1324171354,
-    size: 3287263,
-  },
-  {
-    name: 'China',
-    code: 'CN2',
-    population: 1403500365,
-    size: 9596961,
-  },
-  {
-    name: 'Italy',
-    code: 'IT2',
-    population: 60483973,
-    size: 301340,
-  },
-  {
-    name: 'India',
-    code: 'IN3',
-    population: 1324171354,
-    size: 3287263,
-  },
-  {
-    name: 'China',
-    code: 'CN3',
-    population: 1403500365,
-    size: 9596961,
-  },
-  {
-    name: 'Italy',
-    code: 'IT3',
-    population: 60483973,
-    size: 301340,
-  },
-  {
-    name: 'India',
-    code: 'IN4',
-    population: 1324171354,
-    size: 3287263,
-  },
-  {
-    name: 'China',
-    code: 'CN4',
-    population: 1403500365,
-    size: 9596961,
-  },
-  {
-    name: 'Italy',
-    code: 'IT4',
-    population: 60483973,
-    size: 301340,
-  },
-]
-
-const rows = countries.map((item) =>
-  createData(item.name, item.code, item.population, item.size)
-)
 
 // const rows = [
 //   createData("India", "IN", 1324171354, 3287263),
@@ -146,7 +74,7 @@ const useStyles = makeStyles({
   },
 })
 
-export default function CustomTable() {
+export default function CustomTable({ datas }) {
   const classes = useStyles()
   const [page, setPage] = React.useState(0)
   const [rowsPerPage, setRowsPerPage] = React.useState(10)
@@ -161,7 +89,7 @@ export default function CustomTable() {
   }
 
   return (
-    <Paper className={classes.root}>
+    <Paper className={`${classes.root} ${styles.table}`}>
       <TableContainer className={classes.container}>
         <Table
           stickyHeader
@@ -183,25 +111,41 @@ export default function CustomTable() {
                   {column.label}
                 </TableCell>
               ))}
+              <TableCell align="center" key="email"></TableCell>
             </TableRow>
           </TableHead>
           <TableBody>
-            {rows
+            {datas
               .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
               .map((row) => {
                 return (
-                  <TableRow hover role="checkbox" tabIndex={-1} key={row.code}>
-                    {columns.map((column) => {
-                      const value = row[column.id]
-                      return (
-                        <TableCell key={column.id} align={column.align}>
-                          {column.format && typeof value === 'number'
-                            ? column.format(value)
-                            : value}
-                        </TableCell>
-                      )
-                    })}
-                  </TableRow>
+                  <>
+                    <TableRow
+                      hover
+                      role="checkbox"
+                      tabIndex={-1}
+                      key={row.code}
+                    >
+                      {columns.map((column) => {
+                        const value = row[column.id]
+                        return (
+                          <TableCell key={column.id} align={column.align}>
+                            {column.format ? column.format(value) : value}
+                          </TableCell>
+                        )
+                      })}
+                      <TableCell key="email" align="center">
+                        <Tooltip
+                          title="Liên hệ với nhà tuyển dụng"
+                          placement="top"
+                        >
+                          <MailIcon
+                            sx={{ color: '#637381', cursor: 'pointer' }}
+                          />
+                        </Tooltip>
+                      </TableCell>
+                    </TableRow>
+                  </>
                 )
               })}
           </TableBody>
@@ -210,7 +154,7 @@ export default function CustomTable() {
       <TablePagination
         rowsPerPageOptions={[5, 10, 15, 20, 25, 50, 100]}
         component="div"
-        count={rows.length}
+        count={datas.length}
         rowsPerPage={rowsPerPage}
         page={page}
         onChangePage={handleChangePage}
