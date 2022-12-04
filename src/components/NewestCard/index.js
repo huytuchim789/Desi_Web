@@ -1,6 +1,6 @@
 import { Box, Chip, Typography, Stack, Avatar } from '@mui/material'
 import React, { useState } from 'react'
-import { PRIMARY_COLOR } from '../../utilities/constant'
+import { ACCEPTED, PRIMARY_COLOR } from '../../utilities/constant'
 import CustomButton from '../CustomButton'
 import styles from './../NewestCard/NewestCard.module.css'
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder'
@@ -15,6 +15,7 @@ export default function NewestCard({
   tags,
   hour,
   date,
+  status,
 }) {
   const [hovering, setHovering] = useState(false)
   const [love, setLove] = useState(false)
@@ -23,6 +24,35 @@ export default function NewestCard({
   }
   const unHover = () => {
     setHovering(false)
+  }
+  const getChipStatus = () => {
+    switch (status) {
+      case 'hired':
+        return (
+          <Chip
+            label="Đã tuyển"
+            sx={{
+              color: '#212B36',
+              backgroundColor: '#54D62C',
+              maxWidth: { lg: 'initial', xs: '100px' },
+              borderRadius: '6px',
+            }}
+          />
+        )
+
+      default:
+        return (
+          <Chip
+            label="Mới nhất"
+            sx={{
+              color: '#fff',
+              backgroundColor: '#1890FF',
+              maxWidth: { lg: 'initial', xs: '100px' },
+              borderRadius: '6px',
+            }}
+          />
+        )
+    }
   }
   return (
     <Stack
@@ -66,14 +96,7 @@ export default function NewestCard({
         style={{ color: '#637381' }}
       >
         <Stack direction="row" alignItems="center" spacing="15px">
-          <Chip
-            label="Mới nhất"
-            sx={{
-              color: '#fff',
-              backgroundColor: '#1890FF',
-              maxWidth: { lg: 'initial', xs: '100px' },
-            }}
-          />
+          {getChipStatus()}
           <Typography className={styles.normal_text}>
             Cập nhật {hour} giờ trước
           </Typography>

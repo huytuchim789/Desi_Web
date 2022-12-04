@@ -32,6 +32,8 @@ import { PRIMARY_COLOR } from 'utilities/constant'
 import Facebook from './../../images/login/ic_facebbook.svg'
 import Google from './../../images/login/ic_google.svg'
 import Linkedln from './../../images/login/ic_linkedin.svg'
+import { useNavigate } from 'react-router-dom'
+import { useAuth } from 'components/PrivateRouter/authStore'
 const label = { inputProps: { 'aria-label': 'Checkbox demo' } }
 const requiredMessage = 'Nội dung chưa được nhập'
 const schema = yup
@@ -44,6 +46,8 @@ const schema = yup
   })
   .required()
 const SignUp = () => {
+  let navigate = useNavigate()
+  const { auth, setAuth } = useAuth((state) => state)
   const [alignment, setAlignment] = React.useState('1')
   const [showPassword, setShowPassword] = useState(false)
   const [showAgainPassword, setAgainShowPassword] = useState(false)
@@ -60,7 +64,13 @@ const SignUp = () => {
     resolver: yupResolver(schema),
     mode: 'onChange',
   })
-  const onSubmit = (data) => console.log(data)
+  const onSubmit = (data) => {
+    if (data) {
+      localStorage.setItem('auth', JSON.stringify(data))
+      setAuth(data)
+      navigate('/')
+    }
+  }
   return (
     <Grid container className={styles.login}>
       <Grid item lg={5} sx={{ background: 'rgba(145, 158, 171, 0.08)' }}>
@@ -193,7 +203,6 @@ const SignUp = () => {
                 backgroundColor: PRIMARY_COLOR,
                 whiteSpace: 'nowrap',
               }}
-              href="/"
             >
               Đăng Nhập
             </CustomButton>

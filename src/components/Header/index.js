@@ -10,10 +10,12 @@ import styles from './../Header/Header.module.css'
 import Button from '@mui/material/Button'
 import CustomButton from '../CustomButton'
 import { PRIMARY_COLOR, SECONDARY_COLOR } from '../../utilities/constant'
+import { useAuth } from 'components/PrivateRouter/authStore'
+import AvaMenu from 'components/AvaMenu'
 
 export default function Header() {
   const [language, setLanguage] = React.useState('VI')
-
+  const { auth } = useAuth((state) => state)
   const handleChange = (event) => {
     setLanguage(event.target.value)
   }
@@ -29,9 +31,12 @@ export default function Header() {
           spacing={{ lg: '56px', xs: '5px' }}
           alignItems={{ lg: 'center', xs: 'left' }}
         >
-          <Link>
-            <img className={styles.logo} src={Logo} alt="" />
-          </Link>
+          <Stack direction="row" justifyContent="space-between">
+            <Link>
+              <img className={styles.logo} src={Logo} alt="" />
+            </Link>
+            <AvaMenu sx={{ display: { lg: 'none', xs: 'flex' } }} />
+          </Stack>
           <Link>
             <Typography className={styles.normal_text} noWrap>
               Tìm việc làm
@@ -72,45 +77,52 @@ export default function Header() {
               <MenuItem value={'JP'}>JP</MenuItem>
             </Select>
           </FormControl>
-          <Button
-            variant="text"
-            style={{
-              lineHeight: '27px',
-              color: PRIMARY_COLOR,
-              whiteSpace: 'nowrap',
-              // minWidth: '80px',
-            }}
-            sx={{
-              width: { xs: '100%', lg: 'initial' },
-              border: { lg: 'none', xs: `1px solid ${PRIMARY_COLOR}` },
-            }}
-            disableElevation
-            disableFocusRipple
-            disableRipple
-          >
-            Đăng nhập
-          </Button>
-          <CustomButton
-            className={styles.button}
-            sx={{
-              width: { xs: '100%', lg: 'initial' },
-              backgroundColor: PRIMARY_COLOR,
-              whiteSpace: 'nowrap',
-            }}
-          >
-            Đăng ký
-          </CustomButton>
-          <Button
-            variant="contained"
-            className={`${styles.blue}`}
-            sx={{
-              width: { xs: '100%', lg: 'initial' },
-              backgroundColor: SECONDARY_COLOR,
-              whiteSpace: 'nowrap',
-            }}
-          >
-            Đăng tin tuyển dụng
-          </Button>
+          {auth ? (
+            <AvaMenu sx={{ display: { lg: 'flex', xs: 'none' } }} />
+          ) : (
+            <>
+              {' '}
+              <Button
+                variant="text"
+                style={{
+                  lineHeight: '27px',
+                  color: PRIMARY_COLOR,
+                  whiteSpace: 'nowrap',
+                  // minWidth: '80px',
+                }}
+                sx={{
+                  width: { xs: '100%', lg: 'initial' },
+                  border: { lg: 'none', xs: `1px solid ${PRIMARY_COLOR}` },
+                }}
+                disableElevation
+                disableFocusRipple
+                disableRipple
+              >
+                Đăng nhập
+              </Button>
+              <CustomButton
+                className={styles.button}
+                sx={{
+                  width: { xs: '100%', lg: 'initial' },
+                  backgroundColor: PRIMARY_COLOR,
+                  whiteSpace: 'nowrap',
+                }}
+              >
+                Đăng ký
+              </CustomButton>
+              <Button
+                variant="contained"
+                className={`${styles.blue}`}
+                sx={{
+                  width: { xs: '100%', lg: 'initial' },
+                  backgroundColor: SECONDARY_COLOR,
+                  whiteSpace: 'nowrap',
+                }}
+              >
+                Đăng tin tuyển dụng
+              </Button>
+            </>
+          )}
         </Stack>
       </Grid>
     </Grid>

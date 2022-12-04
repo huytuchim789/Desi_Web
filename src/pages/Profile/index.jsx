@@ -1,7 +1,10 @@
 import {
+  Autocomplete,
   Box,
+  Chip,
   Grid,
   InputAdornment,
+  MenuItem,
   Stack,
   TextField,
   Typography,
@@ -13,41 +16,16 @@ import React, { useEffect } from 'react'
 import styles from './../Profile/profile.module.css'
 import Tabs from '@mui/material/Tabs'
 import Tab from '@mui/material/Tab'
-import { Controller, useForm } from 'react-hook-form'
-import { yupResolver } from '@hookform/resolvers/yup'
-import * as yup from 'yup'
-import CustomUploadFile from 'components/CustomUploadFile'
+import PrivateProfile from './PrivateProfile'
+import TabPanel from '@mui/lab/TabPanel'
+import { TabContext } from '@mui/lab'
+import Competence from './Competence'
+import Confirm from './Confirm'
 
-const tabs = ['Thông tin cá nhân', 'Hồ sơ năng lực', 'Xác thực thông tin']
-
-const requiredMessage = 'Nội dung chưa được nhập'
-const schema = yup
-  .object({
-    name: yup.string().required(requiredMessage),
-    email: yup
-      .string()
-      .email('Bạn chưa nhập đúng định dạng email')
-      .required(requiredMessage),
-  })
-  .required()
-
-const currencies = [
-  {
-    value: 'USD',
-    label: '$',
-  },
-  {
-    value: 'EUR',
-    label: '€',
-  },
-  {
-    value: 'BTC',
-    label: '฿',
-  },
-  {
-    value: 'JPY',
-    label: '¥',
-  },
+const tabs = [
+  { label: 'Thông tin cá nhân', value: 0 },
+  { label: 'Hồ sơ năng lực', value: 1 },
+  { label: 'Xác thực thông tin', value: 2 },
 ]
 export default function Profile() {
   const [value, setValue] = React.useState(0)
@@ -58,16 +36,7 @@ export default function Profile() {
   const handleChange = (event, newValue) => {
     setValue(newValue)
   }
-  const {
-    register,
-    handleSubmit,
-    control,
-    formState: { errors, isValid },
-  } = useForm({
-    resolver: yupResolver(schema),
-    mode: 'onChange',
-  })
-  const onSubmit = (data) => console.log(data)
+
   return (
     <>
       <Header />
@@ -83,94 +52,26 @@ export default function Profile() {
                 Bạn có thể quản lý các thông tin cá nhân tại đây
               </Typography>
             </Stack>
-            <Tabs
-              value={value}
-              onChange={handleChange}
-              aria-label="basic tabs example"
-            >
-              {tabs.map((t) => (
-                <Tab label={t}></Tab>
-              ))}
-            </Tabs>
-          </Stack>
-          <Stack className={styles.form} alignItems="center">
-            <CustomUploadFile />
-            <form
-              onSubmit={handleSubmit(onSubmit)}
-              style={{
-                marginTop: '30px',
-                display: 'flex',
-                justifyContent: 'space-between',
-                flexWrap: 'wrap',
-                width: '100%',
-                padding: '0 80px',
-              }}
-            >
-              <Controller
-                name="name"
-                control={control}
-                render={({ field }) => (
-                  <TextField
-                    {...field}
-                    required
-                    error={!!errors.name}
-                    id="outlined-error"
-                    label="Họ tên"
-                    placeholder="Nhập họ tên"
-                    helperText={errors?.name?.message}
-                    sx={{ width: '47%' }}
-                  />
-                )}
-              />
-              <Controller
-                name="email"
-                control={control}
-                render={({ field }) => (
-                  <TextField
-                    error={!!errors.email}
-                    required
-                    {...field}
-                    id="outlined-error"
-                    label="Email"
-                    placeholder="Nhập email"
-                    helperText={errors?.email?.message}
-                    sx={{ width: '47%' }}
-                  />
-                )}
-              />
-              <Controller
-                name="name"
-                control={control}
-                render={({ field }) => (
-                  <TextField
-                    {...field}
-                    required
-                    error={!!errors.phone}
-                    id="outlined-error"
-                    label="Số điện thoại"
-                    placeholder="Nhập số điện thoại"
-                    helperText={errors?.phone?.message}
-                    sx={{ width: '47%' }}
-                  />
-                )}
-              />
-              <Controller
-                name="city"
-                control={control}
-                render={({ field }) => (
-                  <TextField
-                    error={!!errors.email}
-                    required
-                    {...field}
-                    id="outlined-error"
-                    label="Thành phố"
-                    placeholder="Nhập thành phố"
-                    helperText={errors?.email?.message}
-                    sx={{ width: '47%' }}
-                  />
-                )}
-              />
-            </form>
+            <TabContext value={value}>
+              <Tabs
+                value={value}
+                onChange={handleChange}
+                aria-label="basic tabs example"
+              >
+                {tabs.map((t) => (
+                  <Tab label={t.label} value={t.value}></Tab>
+                ))}
+              </Tabs>
+              <TabPanel value={0}>
+                <PrivateProfile />
+              </TabPanel>
+              <TabPanel value={1}>
+                <Competence />
+              </TabPanel>
+              <TabPanel value={2}>
+                <Confirm />
+              </TabPanel>
+            </TabContext>
           </Stack>
         </Grid>
       </Grid>

@@ -1,0 +1,11 @@
+.gray_text {
+  font-size: 12px !important;
+  line-height: 18px !important;
+  /* identical to box height, or 150% */
+
+  text-align: center;
+
+  /* 11 Text Color/Light/02 Text Secondary */
+
+  color: #637381;
+}

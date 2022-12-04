@@ -1,0 +1,46 @@
+.bgEmail {
+  width: 100%;
+  height: 302px;
+  object-fit: cover;
+}
+.candi {
+  padding: 0 0 80px 120px;
+}
+.normal_text {
+  font-weight: 400 !important;
+  font-size: 16px !important;
+  line-height: 24px !important;
+  /* or 150% */
+
+  /* 11 Text Color/Light/01 Text Primary */
+
+  color: #212b36;
+}
+.candi :global(.Mui-selected) {
+  color: #ffffff !important;
+  background: var(--primary_color) !important;
+}
+.container {
+  width: 100%;
+  background-color: #f4f6f8;
+  padding: 27px 120px;
+  box-sizing: border-box;
+}
+.btn_padding {
+  padding: 10px 60px !important;
+}
+.tab_header {
+  background: #f4f6f8;
+  border-top-left-radius: 12px;
+  border-top-right-radius: 12px;
+}
+.container :global(.Mui-selected) {
+  color: #212b36 !important;
+}
+.container :global(.MuiTabs-indicator) {
+  background: #00ab55 !important;
+  border-radius: 1px;
+}
+.container :global(.Mui-selected) .normal_text {
+  color: #212b36 !important;
+}

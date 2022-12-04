@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Public+Sans&display=swap');
 body {
-  font-family: 'Public sans', sans-serif;
+  font-family: 'Public sans', sans-serif !important;
   margin: 0;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;

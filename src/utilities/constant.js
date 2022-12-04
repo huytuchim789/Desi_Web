@@ -17,6 +17,7 @@ export const cardsData = [
     hour: 8,
     date: 9,
     jobKey: 'design',
+    status: 'hired',
   },
   {
     name: 'Chuyên viên thiết kế đồ họa ',

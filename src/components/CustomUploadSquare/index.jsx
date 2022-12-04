@@ -5,16 +5,16 @@ import ReactFileReader from 'react-file-reader'
 import { Button } from '@material-ui/core'
 import { Stack, Typography } from '@mui/material'
 import AddAPhotoIcon from '@mui/icons-material/AddAPhoto'
-import styles from './../CustomUploadFile/index.module.css'
+import styles from './../CustomUploadSquare/index.module.css'
+import empty from 'images/Profile/empty.png'
 export const AvatarInput = styled.div`
   margin-bottom: 32px;
   position: relative;
   align-self: center;
   img {
-    width: ${(props) => (props.size ? '100%' : '186px')};
-    height: ${(props) => (props.size ? '900px' : '186px')};
+    width: 100%;
+    height: 100%;
     object-fit: cover;
-    border-radius: ${(props) => (props.size ? '0' : '50%')};
   }
   .circle {
     width: 186px;
@@ -50,7 +50,12 @@ export const AvatarInput = styled.div`
   }
 `
 
-export default function CustomUploadFile({ setValue, text, size }) {
+export default function CustomUploadFileSquare({
+  setValue,
+  text,
+  size,
+  front,
+}) {
   const [url, setUrl] = useState('')
 
   const handleFiles = (files) => {
@@ -60,7 +65,7 @@ export default function CustomUploadFile({ setValue, text, size }) {
   }
 
   return (
-    <Stack justifyContent="center" sx={{ width: '100%' }} spacing="8px">
+    <Stack justifyContent="center" sx={{ width: '48%' }} spacing="8px">
       <ReactFileReader
         fileTypes={['.png', '.jpg']}
         base64={true}
@@ -73,25 +78,26 @@ export default function CustomUploadFile({ setValue, text, size }) {
         ) : (
           <Stack
             sx={{
-              width: '186px',
-              height: '186px',
-              borderRadius: '100%',
+              width: '100%',
+              height: '100%',
               background: '#F4F6F8',
               cursor: 'pointer',
+              padding: '40px',
             }}
             alignItems="center"
             justifyContent="center"
             spacing="6px"
           >
-            <AddAPhotoIcon />
-            <Typography className={styles.gray_text}>
-              Tải ảnh lên {<span style={{ color: 'red' }}>*</span>}
+            <img src={empty} alt="" />
+            <Typography className={styles.gray_text} fontWeight={600}>
+              Tải ảnh lên {`${front ? 'mặt trước' : 'mặt sau'}`}
+            </Typography>
+            <Typography className={styles.gray_text} fontWeight={400}>
+              {text}
             </Typography>
           </Stack>
         )}
       </ReactFileReader>
-
-      <Typography className={styles.gray_text}>{text}</Typography>
     </Stack>
   )
 }

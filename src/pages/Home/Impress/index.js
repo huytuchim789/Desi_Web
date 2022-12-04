@@ -58,7 +58,7 @@ export default function Impress() {
                 position: 'relative',
                 backgroundImage: `url(${i.img})`,
                 backgroundRepeat: 'no-repeat',
-                width: { lg: '300px', xs: '100%' },
+                maxWidth: { lg: '250px', xs: '100%' },
                 height: '400px',
                 backgroundSize: { lg: 'initial', xs: 'cover' },
               }}

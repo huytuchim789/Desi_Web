@@ -8,10 +8,26 @@ import JobDetail from 'pages/JobDetail'
 import CandidateDetail from './pages/CandidateDetail'
 import Dashboard from 'pages/Dashboard'
 import Profile from 'pages/Profile'
+import PrivateRouter from 'components/PrivateRouter'
+import HiredDetail from 'pages/HiredDetail'
 
 export const routes = [
-  { path: '/', element: <Home></Home> },
-  { path: '/login', element: <Login /> },
+  {
+    path: '/',
+    element: (
+      <PrivateRouter>
+        <Home />
+      </PrivateRouter>
+    ),
+  },
+  {
+    path: '/login',
+    element: (
+      <PrivateRouter>
+        <Login />
+      </PrivateRouter>
+    ),
+  },
   { path: '/signup', element: <SignUp /> },
   { path: '/forget', element: <ForgetPassword /> },
   { path: '/confirm', element: <Confirmation /> },
@@ -20,4 +36,5 @@ export const routes = [
   { path: '/candidate', element: <CandidateDetail /> },
   { path: '/dashboard', element: <Dashboard /> },
   { path: '/profile', element: <Profile /> },
+  { path: '/hiredDetail', element: <HiredDetail /> },
 ]
