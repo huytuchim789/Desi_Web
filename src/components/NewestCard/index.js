@@ -1,12 +1,14 @@
-import { Box, Chip, Typography, Stack, Avatar } from '@mui/material'
-import React, { useState } from 'react'
-import { ACCEPTED, PRIMARY_COLOR } from '../../utilities/constant'
-import CustomButton from '../CustomButton'
-import styles from './../NewestCard/NewestCard.module.css'
-import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder'
-import FavoriteIcon from '@mui/icons-material/Favorite'
-import formatThousands from 'format-thousands'
+import { Box, Chip, Typography, Stack, Avatar } from "@mui/material";
+import React, { useState } from "react";
+import { ACCEPTED, PRIMARY_COLOR } from "../../utilities/constant";
+import CustomButton from "../CustomButton";
+import styles from "./../NewestCard/NewestCard.module.css";
+import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
+import FavoriteIcon from "@mui/icons-material/Favorite";
+import formatThousands from "format-thousands";
+import { useJobs } from "pages/HiredDetail/store";
 export default function NewestCard({
+  id,
   name,
   content,
   avatar,
@@ -16,44 +18,46 @@ export default function NewestCard({
   hour,
   date,
   status,
+  love,
 }) {
-  const [hovering, setHovering] = useState(false)
-  const [love, setLove] = useState(false)
+  const [hovering, setHovering] = useState(false);
+  const { jobs, setJobs } = useJobs((state) => state);
+
   const hover = () => {
-    setHovering(true)
-  }
+    setHovering(true);
+  };
   const unHover = () => {
-    setHovering(false)
-  }
+    setHovering(false);
+  };
   const getChipStatus = () => {
     switch (status) {
-      case 'hired':
+      case "hired":
         return (
           <Chip
             label="Đã tuyển"
             sx={{
-              color: '#212B36',
-              backgroundColor: '#54D62C',
-              maxWidth: { lg: 'initial', xs: '100px' },
-              borderRadius: '6px',
+              color: "#212B36",
+              backgroundColor: "#54D62C",
+              maxWidth: { lg: "initial", xs: "100px" },
+              borderRadius: "6px",
             }}
           />
-        )
+        );
 
       default:
         return (
           <Chip
             label="Mới nhất"
             sx={{
-              color: '#fff',
-              backgroundColor: '#1890FF',
-              maxWidth: { lg: 'initial', xs: '100px' },
-              borderRadius: '6px',
+              color: "#fff",
+              backgroundColor: "#1890FF",
+              maxWidth: { lg: "initial", xs: "100px" },
+              borderRadius: "6px",
             }}
           />
-        )
+        );
     }
-  }
+  };
   return (
     <Stack
       onMouseOver={hover}
@@ -62,12 +66,12 @@ export default function NewestCard({
       className={styles.newest_card}
     >
       <Stack direction="row" justifyContent="space-between">
-        <Stack direction={{ lg: 'row', xs: 'column' }} spacing="16px">
+        <Stack direction={{ lg: "row", xs: "column" }} spacing="16px">
           <Typography
             sx={{
-              typography: { lg: 'h5', xs: 'h6' },
-              fontWeight: '700',
-              lineHeight: { lg: 'initial', xs: '1' },
+              typography: { lg: "h5", xs: "h6" },
+              fontWeight: "700",
+              lineHeight: { lg: "initial", xs: "1" },
             }}
           >
             {name}
@@ -75,16 +79,32 @@ export default function NewestCard({
         </Stack>
         {love ? (
           <FavoriteIcon
-            sx={{ color: PRIMARY_COLOR, cursor: 'pointer' }}
+            sx={{ color: PRIMARY_COLOR, cursor: "pointer" }}
             onClick={() => {
-              setLove(!love)
+              const newJobs = jobs.map((j) => {
+                if (j.id === id)
+                  return {
+                    ...j,
+                    love: !j.love,
+                  };
+                else return j;
+              });
+              setJobs(newJobs);
             }}
           />
         ) : (
           <FavoriteBorderIcon
-            sx={{ cursor: 'pointer' }}
+            sx={{ cursor: "pointer" }}
             onClick={() => {
-              setLove(!love)
+              const newJobs = jobs.map((j) => {
+                if (j.id === id)
+                  return {
+                    ...j,
+                    love: !j.love,
+                  };
+                else return j;
+              });
+              setJobs(newJobs);
             }}
           />
         )}
@@ -93,7 +113,7 @@ export default function NewestCard({
       <Stack
         direction="row"
         justifyContent="space-between"
-        style={{ color: '#637381' }}
+        style={{ color: "#637381" }}
       >
         <Stack direction="row" alignItems="center" spacing="15px">
           {getChipStatus()}
@@ -102,23 +122,23 @@ export default function NewestCard({
           </Typography>
         </Stack>
         <Typography className={styles.normal_text}>
-          Còn <span style={{ fontWeight: '700' }}>{date}</span> ngày trước
+          Còn <span style={{ fontWeight: "700" }}>{date}</span> ngày trước
         </Typography>
       </Stack>
       <Typography className={styles.normal_text}>{content}</Typography>
       <Typography
         sx={{
-          typography: { lg: 'h5', xs: 'body1' },
-          fontWeight: '400',
-          display: { lg: 'initial', xs: 'none' },
+          typography: { lg: "h5", xs: "body1" },
+          fontWeight: "400",
+          display: { lg: "initial", xs: "none" },
         }}
       >
-        {`${formatThousands(salary, { separator: '.' })} VNĐ`}
+        {`${formatThousands(salary, { separator: "." })} VNĐ`}
       </Typography>
       <Stack
-        direction={{ lg: 'row' }}
-        alignItems={{ lg: 'center', xs: 'start' }}
-        justifyContent={{ lg: 'space-between', xs: 'start' }}
+        direction={{ lg: "row" }}
+        alignItems={{ lg: "center", xs: "start" }}
+        justifyContent={{ lg: "space-between", xs: "start" }}
       >
         <Stack direction="row" alignItems="center" spacing="20px">
           <Avatar src={avatar} />
@@ -143,9 +163,9 @@ export default function NewestCard({
         </Typography> */}
       </Stack>
       <Stack
-        direction={{ lg: 'row', xs: 'column' }}
+        direction={{ lg: "row", xs: "column" }}
         justifyContent="space-between"
-        spacing={{ xs: '20px' }}
+        spacing={{ xs: "20px" }}
       >
         {/* <Stack direction="row" spacing="12px">
           {tags.map((t) => (
@@ -160,5 +180,5 @@ export default function NewestCard({
         </Stack> */}
       </Stack>
     </Stack>
-  )
+  );
 }

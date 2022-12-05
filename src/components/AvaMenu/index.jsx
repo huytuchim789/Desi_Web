@@ -50,7 +50,7 @@ export default function AvaMenu({ sx }) {
                 src="https://freesvg.org/img/abstract-user-flat-3.png"
               />
             }
-            label={auth.email}
+            label={auth?.email}
           />
           <Avatar
             alt="Natacha"
