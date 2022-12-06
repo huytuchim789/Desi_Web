@@ -1,56 +1,52 @@
-import React from "react";
-import { makeStyles } from "@material-ui/core/styles";
-import Paper from "@material-ui/core/Paper";
-import Table from "@material-ui/core/Table";
-import TableBody from "@material-ui/core/TableBody";
-import TableCell from "@material-ui/core/TableCell";
-import TableContainer from "@material-ui/core/TableContainer";
-import TableHead from "@material-ui/core/TableHead";
-import TablePagination from "@material-ui/core/TablePagination";
-import TableRow from "@material-ui/core/TableRow";
-import { Chip, tableCellClasses, Tooltip } from "@mui/material";
-import MailIcon from "@mui/icons-material/Mail";
-import { ACCEPTED, REJECTED, WAITING } from "utilities/constant";
-import styles from "./../CustomTable/table.module.css";
-import { useNavigate } from "react-router-dom";
+import React from 'react'
+import { makeStyles } from '@material-ui/core/styles'
+import Paper from '@material-ui/core/Paper'
+import Table from '@material-ui/core/Table'
+import TableBody from '@material-ui/core/TableBody'
+import TableCell from '@material-ui/core/TableCell'
+import TableContainer from '@material-ui/core/TableContainer'
+import TableHead from '@material-ui/core/TableHead'
+import TablePagination from '@material-ui/core/TablePagination'
+import TableRow from '@material-ui/core/TableRow'
+import { Chip, tableCellClasses, Tooltip } from '@mui/material'
+import MailIcon from '@mui/icons-material/Mail'
+import { ACCEPTED, REJECTED, WAITING } from 'utilities/constant'
+import styles from './../CustomTable/table.module.css'
+import { useNavigate } from 'react-router-dom'
 const columns = [
-  { id: "title", label: "Tiêu đề việc làm", minWidth: 120, maxWidth: 130 },
-  { id: "hr", label: "Nhà tuyển dụng", minWidth: 100 },
+  { id: 'title', label: 'Tiêu đề việc làm', minWidth: 120, maxWidth: 130 },
+  { id: 'hr', label: 'Nhà tuyển dụng', minWidth: 100 },
   {
-    id: "deadline",
-    label: "Hạn nộp hồ sơ",
+    id: 'deadline',
+    label: 'Hạn nộp hồ sơ',
     minWidth: 100,
     format: (value) => value.toLocaleString(),
   },
   {
-    id: "date",
-    label: "Ngày ứng tuyển",
+    id: 'date',
+    label: 'Ngày ứng tuyển',
     minWidth: 100,
     format: (value) => value.toLocaleString(),
   },
   {
-    id: "status",
-    label: "Trạng thái",
+    id: 'status',
+    label: 'Trạng thái',
     minWidth: 120,
     format: (value) => {
       switch (value) {
-        case "wait":
-          return (
-            <Chip label="Chờ phản hồi" sx={{ background: WAITING }}></Chip>
-          );
-        case "reject":
-          return (
-            <Chip label="Bị từ chối " sx={{ background: REJECTED }}></Chip>
-          );
-        case "accept":
-          return <Chip label="Đã nhận" sx={{ background: ACCEPTED }}></Chip>;
+        case 'wait':
+          return <Chip label="Chờ phản hồi" sx={{ background: WAITING }}></Chip>
+        case 'reject':
+          return <Chip label="Bị từ chối " sx={{ background: REJECTED }}></Chip>
+        case 'accept':
+          return <Chip label="Đã nhận" sx={{ background: ACCEPTED }}></Chip>
 
         default:
-          break;
+          break
       }
     },
   },
-];
+]
 
 // const rows = [
 //   createData("India", "IN", 1324171354, 3287263),
@@ -72,27 +68,27 @@ const columns = [
 
 const useStyles = makeStyles({
   root: {
-    width: "100%",
+    width: '100%',
   },
   container: {
     maxHeight: 440,
   },
-});
+})
 
 export default function CustomTable({ datas }) {
-  let navigate = useNavigate();
-  const classes = useStyles();
-  const [page, setPage] = React.useState(0);
-  const [rowsPerPage, setRowsPerPage] = React.useState(10);
+  let navigate = useNavigate()
+  const classes = useStyles()
+  const [page, setPage] = React.useState(0)
+  const [rowsPerPage, setRowsPerPage] = React.useState(10)
 
   const handleChangePage = (event, newPage) => {
-    setPage(newPage);
-  };
+    setPage(newPage)
+  }
 
   const handleChangeRowsPerPage = (event) => {
-    setRowsPerPage(+event.target.value);
-    setPage(0);
-  };
+    setRowsPerPage(+event.target.value)
+    setPage(0)
+  }
 
   return (
     <Paper className={`${classes.root} ${styles.table}`}>
@@ -102,7 +98,7 @@ export default function CustomTable({ datas }) {
           aria-label="sticky table"
           sx={{
             [`& .${tableCellClasses.root}`]: {
-              borderBottom: "none",
+              borderBottom: 'none',
             },
           }}
         >
@@ -133,12 +129,12 @@ export default function CustomTable({ datas }) {
                       key={row.code}
                     >
                       {columns.map((column) => {
-                        const value = row[column.id];
+                        const value = row[column.id]
                         return (
                           <TableCell key={column.id} align={column.align}>
                             {column.format ? column.format(value) : value}
                           </TableCell>
-                        );
+                        )
                       })}
                       <TableCell key="email" align="center">
                         <Tooltip
@@ -146,16 +142,18 @@ export default function CustomTable({ datas }) {
                           placement="top"
                         >
                           <MailIcon
-                            sx={{ color: "#637381", cursor: "pointer" }}
-                            onClick={()=>{
-                              navigate('/')
+                            sx={{ color: '#637381', cursor: 'pointer' }}
+                            onClick={() => {
+                              navigate('/hiredDetail', {
+                                state: { open: true },
+                              })
                             }}
                           />
                         </Tooltip>
                       </TableCell>
                     </TableRow>
                   </>
-                );
+                )
               })}
           </TableBody>
         </Table>
@@ -171,5 +169,5 @@ export default function CustomTable({ datas }) {
         labelRowsPerPage="Số hàng trong trang:"
       />
     </Paper>
-  );
+  )
 }

@@ -1,0 +1,43 @@
+.card :global(.slick-list) {
+  width: 100%;
+}
+.card :global(.slick-list) {
+  margin: 0 -20px;
+}
+.card :global(.slick-slide > div) {
+  padding: 0 20px;
+}
+.chip {
+  background: rgba(145, 158, 171, 0.16) !important;
+  border-radius: 6px !important;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 20px;
+  /* identical to box height, or 167% */
+
+  text-align: center;
+
+  /* 11 Text Color/Light/02 Text Secondary */
+
+  color: #637381;
+}
+.card :global(ul) {
+  list-style-type: none;
+  padding: 0;
+}
+.card :global(li) {
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+  /* identical to box height, or 150% */
+
+  /* 11 Text Color/Light/01 Text Primary */
+
+  color: #212b36;
+}
+.card :global(li + li) {
+  margin-top: 15px;
+}
+.card :global(.MuiCardHeader-root) {
+  padding: 0 !important;
+}

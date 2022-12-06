@@ -1,0 +1,16 @@
+.normal_text {
+  font-weight: 400 !important;
+  line-height: 22px;
+  color: #637381;
+}
+.menu_item:hover {
+  font-weight: 700 !important ;
+}
+.free :global(.Mui-selected) {
+  color: #ffffff !important;
+  border-left: 1px solid var(--primary_color) !important;
+  background: var(--primary_color) !important;
+}
+.free :global(.MuiPagination-ul) {
+  justify-content: center;
+}
