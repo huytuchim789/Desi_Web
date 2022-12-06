@@ -7,6 +7,7 @@ import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 import FavoriteIcon from "@mui/icons-material/Favorite";
 import formatThousands from "format-thousands";
 import { useJobs } from "pages/HiredDetail/store";
+import { useAuth } from "components/PrivateRouter/authStore";
 export default function NewestCard({
   id,
   name,
@@ -22,7 +23,7 @@ export default function NewestCard({
 }) {
   const [hovering, setHovering] = useState(false);
   const { jobs, setJobs } = useJobs((state) => state);
-
+  const { auth } = useAuth((state) => state);
   const hover = () => {
     setHovering(true);
   };
@@ -149,6 +150,7 @@ export default function NewestCard({
             hovering ? styles.show : styles.unShow
           }`}
           sx={{ backgroundColor: PRIMARY_COLOR }}
+          href={!auth ? "/login" : "/jobDetail"}
         >
           Xem chi tiết
         </CustomButton>

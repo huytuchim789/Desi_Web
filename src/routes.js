@@ -33,7 +33,14 @@ export const routes = [
   { path: "/signup", element: <SignUp /> },
   { path: "/forget", element: <ForgetPassword /> },
   { path: "/confirm", element: <Confirmation /> },
-  { path: "/findJob", element: <FindJob /> },
+  {
+    path: "/findJob",
+    element: (
+      <PublicRouter>
+        <FindJob />
+      </PublicRouter>
+    ),
+  },
   { path: "/jobDetail", element: <JobDetail /> },
   { path: "/candidate", element: <CandidateDetail /> },
   { path: "/dashboard", element: <Dashboard /> },

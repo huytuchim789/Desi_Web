@@ -15,20 +15,21 @@ import {
   ToggleButton,
   ToggleButtonGroup,
   Typography,
-} from '@mui/material'
-import CustomButton from 'components/CustomButton'
-import Footer from 'components/Footer'
-import Header from 'components/Header'
-import React, { useEffect, useState } from 'react'
-import { cardsData, PRIMARY_COLOR } from 'utilities/constant'
-import styles from './../FindJob/FindJob.module.css'
-import SearchIcon from '@mui/icons-material/Search'
-import LeftArrow from 'images/impress/prev_arrow.svg'
-import RightArrow from 'images/impress/next_arrow.svg'
-import Slider from 'react-slick'
+} from "@mui/material";
+import CustomButton from "components/CustomButton";
+import Footer from "components/Footer";
+import Header from "components/Header";
+import React, { useEffect, useState } from "react";
+import { cardsData, PRIMARY_COLOR } from "utilities/constant";
+import styles from "./../FindJob/FindJob.module.css";
+import SearchIcon from "@mui/icons-material/Search";
+import LeftArrow from "images/impress/prev_arrow.svg";
+import RightArrow from "images/impress/next_arrow.svg";
+import Slider from "react-slick";
 
-import NewestCard from 'components/NewestCard'
-const PrevArrow = (props) => <img src={LeftArrow} alt="" {...props} />
+import NewestCard from "components/NewestCard";
+import { useJobs } from "pages/HiredDetail/store";
+const PrevArrow = (props) => <img src={LeftArrow} alt="" {...props} />;
 const settings = {
   infinite: false,
   speed: 500,
@@ -36,154 +37,155 @@ const settings = {
   slidesToScroll: 4,
   prevArrow: <PrevArrow />,
   nextArrow: <img src={RightArrow} alt="" />,
-}
-const jobs = [
-  { label: 'Tất cả công việc', value: 'all' },
-  { label: 'Thiết kế nhận diện thương hiệu ', value: 'brand' },
-  { label: 'Thiết kế hoạt họa', value: 'design' },
-  { label: 'Thiết kế nội thất ', value: 'infra' },
-]
+};
+const jobsSelect = [
+  { label: "Tất cả công việc", value: "all" },
+  { label: "Thiết kế nhận diện thương hiệu ", value: "brand" },
+  { label: "Thiết kế hoạt họa", value: "design" },
+  { label: "Thiết kế nội thất ", value: "infra" },
+];
 const prices = [
-  { label: 'Dưới 500.000 VND', value: [0, 500000] },
-  { label: '500.000 - 1.500.000 VND', value: [500000, 1500000] },
-  { label: '1.500.000 - 3.000.000 VND', value: [1500000, 3000000] },
-  { label: 'Trên 3.000.000 VND', value: [3000000, 999999999999] },
-]
+  { label: "Dưới 500.000 VND", value: [0, 500000] },
+  { label: "500.000 - 1.500.000 VND", value: [500000, 1500000] },
+  { label: "1.500.000 - 3.000.000 VND", value: [1500000, 3000000] },
+  { label: "Trên 3.000.000 VND", value: [3000000, 999999999999] },
+];
 const tabs = [
-  { label: 'Mới Nhất', value: 'newest', count: '1' },
-  { label: 'Thiết kế bao bì', value: 'design', count: '2' },
-  { label: 'Thiết kế nội thất', value: 'infra', count: '3' },
+  { label: "Mới Nhất", value: "newest", count: "1" },
+  { label: "Thiết kế bao bì", value: "design", count: "2" },
+  { label: "Thiết kế nội thất", value: "infra", count: "3" },
   // { label: 'Thiết kế bao bì', value: 15, count: '4' },
   // { label: 'Thiết kế bao bì', value: 15, count: '4' },
   // { label: 'Thiết kế bao bì', value: 15, count: '4' },
-  { label: 'Thiết kế nhận diện thương hiệu ', value: 'brand', count: '5' },
-]
+  { label: "Thiết kế nhận diện thương hiệu ", value: "brand", count: "5" },
+];
 export default function FindJob() {
-  const [alignment, setAlignment] = React.useState()
-  const [cards, setCards] = useState(cardsData)
-  const [job, setJob] = React.useState()
-  const [price, setPrice] = React.useState()
-  const [search, setSearch] = useState('')
+  const [alignment, setAlignment] = React.useState("newest");
+  const [job, setJob] = React.useState();
+  const [price, setPrice] = React.useState();
+  const [search, setSearch] = useState("");
+  const { jobs, setJobs } = useJobs((state) => state);
   const handleChange = (event, newAlignment) => {
-    setAlignment(newAlignment)
-    filterAlign(cardsData, newAlignment)
-  }
+    console.log(newAlignment);
+    setAlignment(newAlignment);
+    filterAlign(cardsData, newAlignment);
+  };
   const filterSalary = (cards, price) => {
-    let newPrice = price
-    let newDataCards = cards
-    console.log(cards, price)
+    let newPrice = price;
+    let newDataCards = cards;
+    console.log(cards, price);
     const newData = newDataCards
       .filter((c) => {
-        if (newPrice) return c.salary > newPrice[0] && c.salary < newPrice[1]
-        return true
+        if (newPrice) return c.salary > newPrice[0] && c.salary < newPrice[1];
+        return true;
       })
       .filter((c) => {
-        if (job) return c.jobKey === job
-        return true
+        if (job) return c.jobKey === job;
+        return true;
       })
       .filter((c) => {
-        if (search) return c.name.includes(search)
+        if (search) return c.name.includes(search);
 
-        return true
+        return true;
       })
       .filter((c) => {
-        if (alignment) return c.category === alignment
-        return true
-      })
-    setCards(newData)
-  }
+        if (alignment) return c.category === alignment;
+        return true;
+      });
+    setJobs(newData);
+  };
   const filterJob = (cards, job) => {
-    let newDataCards = cards
+    let newDataCards = cards;
     const newData = newDataCards
       .filter((c) => {
-        if (job) return c.jobKey === job
-        return true
+        if (job) return c.jobKey === job;
+        return true;
       })
       .filter((c) => {
-        if (price) return c.salary > price[0] && c.salary < price[1]
-        return true
+        if (price) return c.salary > price[0] && c.salary < price[1];
+        return true;
       })
       .filter((c) => {
-        if (search) return c.name.includes(search)
+        if (search) return c.name.includes(search);
 
-        return true
+        return true;
       })
       .filter((c) => {
-        if (alignment) return c.category === alignment
-        return true
-      })
-    setCards(newData)
-  }
+        if (alignment) return c.category === alignment;
+        return true;
+      });
+    setJobs(newData);
+  };
   const filterSearch = (cards, search) => {
-    let newDataCards = cards
+    let newDataCards = cards;
     const newData = newDataCards
       .filter((c) => {
-        if (search) return c.name.includes(search)
+        if (search) return c.name.includes(search);
 
-        return true
+        return true;
       })
       .filter((c) => {
-        if (price) return c.salary > price[0] && c.salary < price[1]
-        return true
+        if (price) return c.salary > price[0] && c.salary < price[1];
+        return true;
       })
       .filter((c) => {
-        if (job) return c.jobKey === job
-        return true
+        if (job) return c.jobKey === job;
+        return true;
       })
       .filter((c) => {
-        if (alignment) return c.category === alignment
-        return true
-      })
-    setCards(newData)
-  }
+        if (alignment) return c.category === alignment;
+        return true;
+      });
+    setJobs(newData);
+  };
   const filterAlign = (cards, align) => {
-    let newDataCards = cards
+    let newDataCards = cards;
     const newData = newDataCards
       .filter((c) => {
-        if (search) return c.name.includes(search)
-        return true
+        if (search) return c.name.includes(search);
+        return true;
       })
       .filter((c) => {
-        if (price) return c.salary > price[0] && c.salary < price[1]
-        return true
+        if (price) return c.salary > price[0] && c.salary < price[1];
+        return true;
       })
       .filter((c) => {
-        if (job) return c.jobKey === job
-        return true
+        if (job) return c.jobKey === job;
+        return true;
       })
       .filter((c) => {
-        if (align) return c.category === align
-        return true
-      })
-    setCards(newData)
-  }
+        if (align) return c.category === align;
+        return true;
+      });
+    setJobs(newData);
+  };
   const renderTitle = () => {
     if (!search && !alignment && !price && !job)
       return (
         <Stack alignItems="center">
-          <Typography variant="h5" sx={{ fontWeight: '600' }}>
+          <Typography variant="h5" sx={{ fontWeight: "600" }}>
             Việc làm freelancer - Làm online, nhận tiền nhanh chóng
           </Typography>
-          <Typography variant="h6" sx={{ color: '#637381', fontWeight: '500' }}>
+          <Typography variant="h6" sx={{ color: "#637381", fontWeight: "500" }}>
             Hơn 51931 dự án đã đăng và thuê được freelancer thành công.
           </Typography>
         </Stack>
-      )
+      );
     return (
-      <Stack alignItems="start" sx={{ width: '100%' }}>
-        <Typography variant="h5" sx={{ fontWeight: '600' }}>
+      <Stack alignItems="start" sx={{ width: "100%" }}>
+        <Typography variant="h5" sx={{ fontWeight: "600" }}>
           {`${
             alignment
-              ? 'Thiết kế nhận diện thương hiệu 15 dự án'
-              : 'Kết quả tìm kiếm'
+              ? "Thiết kế nhận diện thương hiệu 15 dự án"
+              : "Kết quả tìm kiếm"
           }`}
         </Typography>
-        <Typography variant="h6" sx={{ color: '#637381', fontWeight: '500' }}>
-          {`${cards.length} dự án`}
+        <Typography variant="h6" sx={{ color: "#637381", fontWeight: "500" }}>
+          {`${jobs.length} dự án`}
         </Typography>
       </Stack>
-    )
-  }
+    );
+  };
   useEffect(() => {
     // console.log(price, job, cards)
     // const newData = newDataCards.filter((c) => {
@@ -196,8 +198,8 @@ export default function FindJob() {
     //     )
     //   return true
     // })
-    // setCards(newData)
-  }, [price, job, search])
+    // setJobs(newData)
+  }, [price, job, search]);
   return (
     <>
       <Header />
@@ -211,20 +213,20 @@ export default function FindJob() {
           id="outlined-required"
           hiddenLabel
           placeholder="Tên công việc, vị trí bạn muốn ứng tuyển ..."
-          sx={{ width: '30%' }}
+          sx={{ width: "30%" }}
           onChange={(e) => {
             if (e.target.value) {
-              setSearch(e.target.value)
-              filterSearch(cardsData, e.target.value)
+              setSearch(e.target.value);
+              filterSearch(cardsData, e.target.value);
               // filterJob(cardsData, job)
               // filterSalary(cardsData, price)
             } else {
-              setCards(cardsData)
+              setJobs(cardsData);
             }
           }}
         />
 
-        <FormControl sx={{ width: '30%' }}>
+        <FormControl sx={{ width: "30%" }}>
           <Select
             labelId="demo-simple-select-label"
             id="demo-simple-select"
@@ -232,29 +234,29 @@ export default function FindJob() {
             value={job}
             // placeholder="Danh mục công việc"
             displayEmpty
-            renderValue={job ? undefined : () => 'Danh mục công việc'}
+            renderValue={job ? undefined : () => "Danh mục công việc"}
             onChange={(e) => {
               if (e.target.value) {
-                setJob(e.target.value)
+                setJob(e.target.value);
                 // filterSearch(cardsData, search)
-                filterJob(cardsData, e.target.value)
+                filterJob(cardsData, e.target.value);
                 // filterSalary(cardsData, price)
               } else {
-                setCards(cardsData)
+                setJobs(cardsData);
               }
             }}
           >
-            <Typography sx={{ padding: '16px 16px' }}>
-              Danh mục công việc <span>{` (${jobs.length})`}</span>
+            <Typography sx={{ padding: "16px 16px" }}>
+              Danh mục công việc <span>{` (${jobsSelect.length})`}</span>
             </Typography>
-            {jobs.map((job, i) => (
+            {jobsSelect.map((job, i) => (
               <MenuItem className={styles.menu_item} key={i} value={job.value}>
                 {job.label}
               </MenuItem>
             ))}
           </Select>
         </FormControl>
-        <FormControl sx={{ width: '30%' }}>
+        <FormControl sx={{ width: "30%" }}>
           <Select
             labelId="demo-simple-select-label"
             id="demo-simple-select"
@@ -262,15 +264,15 @@ export default function FindJob() {
             value={price}
             // placeholder="Danh mục công việc"
             displayEmpty
-            renderValue={price ? undefined : () => 'Mức giá mong muốn'}
+            renderValue={price ? undefined : () => "Mức giá mong muốn"}
             onChange={(e) => {
               if (e.target.value) {
-                setPrice(JSON.parse(e.target.value))
-                filterSalary(cardsData, JSON.parse(e.target.value))
+                setPrice(JSON.parse(e.target.value));
+                filterSalary(cardsData, JSON.parse(e.target.value));
               }
             }}
           >
-            <Typography sx={{ padding: '16px 16px' }}>
+            <Typography sx={{ padding: "16px 16px" }}>
               Danh mục công việc <span>{` (${prices.length})`}</span>
             </Typography>
             {prices.map((price, i) => (
@@ -286,9 +288,9 @@ export default function FindJob() {
         </FormControl>
         <CustomButton
           sx={{
-            width: { xs: '100%', lg: 'initial' },
+            width: { xs: "100%", lg: "initial" },
             backgroundColor: PRIMARY_COLOR,
-            whiteSpace: 'nowrap',
+            whiteSpace: "nowrap",
           }}
           startIcon={<SearchIcon />}
         >
@@ -308,7 +310,7 @@ export default function FindJob() {
           {tabs.map((tab) => (
             <ToggleButton
               value={tab.value}
-              sx={{ padding: '63px 32px', width: '20%' }}
+              sx={{ padding: "63px 32px", width: "20%" }}
             >
               <Stack>
                 <Typography>{tab.label}</Typography>
@@ -318,8 +320,8 @@ export default function FindJob() {
           ))}
         </ToggleButtonGroup>
         {renderTitle()}
-        <Grid container rowSpacing={'50px'} columnSpacing={'50px'}>
-          {cards.map((e) => (
+        <Grid container rowSpacing={"50px"} columnSpacing={"50px"}>
+          {jobs.map((e) => (
             <Grid item lg={6} xs={12}>
               <NewestCard {...e} />
             </Grid>
@@ -329,5 +331,5 @@ export default function FindJob() {
       </Stack>
       <Footer />
     </>
-  )
+  );
 }

@@ -1,43 +1,43 @@
-import { Box, Grid, Stack, Typography } from '@mui/material'
-import React from 'react'
-import { Link } from 'react-router-dom'
-import Logo from '../../images/logo.svg'
-import InputLabel from '@mui/material/InputLabel'
-import MenuItem from '@mui/material/MenuItem'
-import FormControl from '@mui/material/FormControl'
-import Select from '@mui/material/Select'
-import styles from './../Header/Header.module.css'
-import Button from '@mui/material/Button'
-import CustomButton from '../CustomButton'
-import { PRIMARY_COLOR, SECONDARY_COLOR } from '../../utilities/constant'
-import { useAuth } from 'components/PrivateRouter/authStore'
-import AvaMenu from 'components/AvaMenu'
+import { Box, Grid, Stack, Typography } from "@mui/material";
+import React from "react";
+import { Link } from "react-router-dom";
+import Logo from "../../images/logo.svg";
+import InputLabel from "@mui/material/InputLabel";
+import MenuItem from "@mui/material/MenuItem";
+import FormControl from "@mui/material/FormControl";
+import Select from "@mui/material/Select";
+import styles from "./../Header/Header.module.css";
+import Button from "@mui/material/Button";
+import CustomButton from "../CustomButton";
+import { PRIMARY_COLOR, SECONDARY_COLOR } from "../../utilities/constant";
+import { useAuth } from "components/PrivateRouter/authStore";
+import AvaMenu from "components/AvaMenu";
 
 export default function Header() {
-  const [language, setLanguage] = React.useState('VI')
-  const { auth } = useAuth((state) => state)
+  const [language, setLanguage] = React.useState("VI");
+  const { auth } = useAuth((state) => state);
   const handleChange = (event) => {
-    setLanguage(event.target.value)
-  }
+    setLanguage(event.target.value);
+  };
   return (
     <Grid
       container
       className={styles.header}
-      spacing={{ lg: '200px', xs: '0' }}
+      spacing={{ lg: "200px", xs: "0" }}
     >
       <Grid item lg={6} xs={12}>
         <Stack
-          direction={{ lg: 'row', xs: 'column' }}
-          spacing={{ lg: '56px', xs: '5px' }}
-          alignItems={{ lg: 'center', xs: 'left' }}
+          direction={{ lg: "row", xs: "column" }}
+          spacing={{ lg: "56px", xs: "5px" }}
+          alignItems={{ lg: "center", xs: "left" }}
         >
           <Stack direction="row" justifyContent="space-between">
-            <Link>
+            <Link to="/">
               <img className={styles.logo} src={Logo} alt="" />
             </Link>
-            <AvaMenu sx={{ display: { lg: 'none', xs: 'flex' } }} />
+            <AvaMenu sx={{ display: { lg: "none", xs: "flex" } }} />
           </Stack>
-          <Link>
+          <Link to={"/findJob"}>
             <Typography className={styles.normal_text} noWrap>
               Tìm việc làm
             </Typography>
@@ -56,11 +56,11 @@ export default function Header() {
       </Grid>
       <Grid item lg={6} xs={12}>
         <Stack
-          spacing={'24px'}
-          direction={{ lg: 'row', xs: 'column' }}
+          spacing={"24px"}
+          direction={{ lg: "row", xs: "column" }}
           alignItems="center"
-          justifyContent={{ lg: 'end' }}
-          height={'100%'}
+          justifyContent={{ lg: "end" }}
+          height={"100%"}
         >
           <FormControl variant="standard">
             <Select
@@ -69,44 +69,46 @@ export default function Header() {
               value={language}
               onChange={handleChange}
               disableUnderline
-              style={{ paddingBottom: '0px' }}
-              sx={{ display: { lg: 'inline', xs: 'none' } }}
+              style={{ paddingBottom: "0px" }}
+              sx={{ display: { lg: "inline", xs: "none" } }}
             >
-              <MenuItem value={'VI'}>VI</MenuItem>
-              <MenuItem value={'EN'}>EN</MenuItem>
-              <MenuItem value={'JP'}>JP</MenuItem>
+              <MenuItem value={"VI"}>VI</MenuItem>
+              <MenuItem value={"EN"}>EN</MenuItem>
+              <MenuItem value={"JP"}>JP</MenuItem>
             </Select>
           </FormControl>
           {auth ? (
-            <AvaMenu sx={{ display: { lg: 'flex', xs: 'none' } }} />
+            <AvaMenu sx={{ display: { lg: "flex", xs: "none" } }} />
           ) : (
             <>
-              {' '}
+              {" "}
               <Button
                 variant="text"
                 style={{
-                  lineHeight: '27px',
+                  lineHeight: "27px",
                   color: PRIMARY_COLOR,
-                  whiteSpace: 'nowrap',
+                  whiteSpace: "nowrap",
                   // minWidth: '80px',
                 }}
                 sx={{
-                  width: { xs: '100%', lg: 'initial' },
-                  border: { lg: 'none', xs: `1px solid ${PRIMARY_COLOR}` },
+                  width: { xs: "100%", lg: "initial" },
+                  border: { lg: "none", xs: `1px solid ${PRIMARY_COLOR}` },
                 }}
                 disableElevation
                 disableFocusRipple
                 disableRipple
+                href="/login"
               >
                 Đăng nhập
               </Button>
               <CustomButton
                 className={styles.button}
                 sx={{
-                  width: { xs: '100%', lg: 'initial' },
+                  width: { xs: "100%", lg: "initial" },
                   backgroundColor: PRIMARY_COLOR,
-                  whiteSpace: 'nowrap',
+                  whiteSpace: "nowrap",
                 }}
+                href="signup"
               >
                 Đăng ký
               </CustomButton>
@@ -114,9 +116,9 @@ export default function Header() {
                 variant="contained"
                 className={`${styles.blue}`}
                 sx={{
-                  width: { xs: '100%', lg: 'initial' },
+                  width: { xs: "100%", lg: "initial" },
                   backgroundColor: SECONDARY_COLOR,
-                  whiteSpace: 'nowrap',
+                  whiteSpace: "nowrap",
                 }}
               >
                 Đăng tin tuyển dụng
@@ -126,5 +128,5 @@ export default function Header() {
         </Stack>
       </Grid>
     </Grid>
-  )
+  );
 }

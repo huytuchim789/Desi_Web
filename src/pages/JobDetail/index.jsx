@@ -364,9 +364,11 @@ export default function JobDetail() {
                   Thiết kế sản phẩm truyền thông cho chiến dịch chào đón Tết
                   2023
                 </Typography>
-                <Typography variant="h6" className={styles.normal_text}>
-                  Công ty TNHH Graphic Design
-                </Typography>
+                <Link href="/hiredDetail">
+                  <Typography variant="h6" className={styles.normal_text}>
+                    Công ty TNHH Graphic Design
+                  </Typography>
+                </Link>
                 <Stack direction="row" spacing="10px" alignItems="center">
                   <CalendarTodayIcon />
                   <Typography variant="body2" sx={{ fontWeight: "400" }}>
