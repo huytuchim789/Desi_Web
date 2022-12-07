@@ -23,9 +23,10 @@
 }
 .logo_btn {
   width: 30% !important;
-  border: 1px solid rgba(145, 158, 171, 0.32) !important;
+  /* border: 1px solid rgba(145, 158, 171, 0.32) !important; */
   border-radius: 8px !important;
   padding: 10px 20px !important;
+  border-right-color: unset !important;
 }
 .login :global(.MuiToggleButtonGroup-groupedHorizontal) {
   width: 48% !important;

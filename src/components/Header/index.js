@@ -1,6 +1,5 @@
-import { Box, Grid, Stack, Typography } from '@mui/material'
+import { Box, Grid, Link, Stack, Typography } from '@mui/material'
 import React from 'react'
-import { Link } from 'react-router-dom'
 import Logo from '../../images/logo.svg'
 import InputLabel from '@mui/material/InputLabel'
 import MenuItem from '@mui/material/MenuItem'
@@ -32,22 +31,22 @@ export default function Header() {
           alignItems={{ lg: 'center', xs: 'left' }}
         >
           <Stack direction="row" justifyContent="space-between">
-            <Link to="/">
+            <Link color="inherit" href="/">
               <img className={styles.logo} src={Logo} alt="" />
             </Link>
             <AvaMenu sx={{ display: { lg: 'none', xs: 'flex' } }} />
           </Stack>
-          <Link to={'/findJob'}>
+          <Link color="inherit" href={'/findJob'}>
             <Typography className={styles.normal_text} noWrap>
               Tìm việc làm
             </Typography>
           </Link>
-          <Link to={'/freelancers'}>
+          <Link color="inherit" href={'/freelancers'}>
             <Typography className={styles.normal_text} noWrap>
               Tìm Freelancer
             </Typography>
           </Link>
-          <Link>
+          <Link color="inherit" href={'#'}>
             <Typography className={styles.normal_text} noWrap>
               Blog
             </Typography>

@@ -38,7 +38,7 @@ const schema = yup
     content: yup.string().required('Bạn cần nhập thông tin này'),
   })
   .required()
-export default function CustomModal({ open, setOpen }) {
+export default function CustomModal({ open, setOpen, user }) {
   const [openAlert, setOpenAlert] = React.useState(false)
 
   const handleClose = () => setOpen(false)
@@ -70,7 +70,7 @@ export default function CustomModal({ open, setOpen }) {
           sx={{ padding: '0 40px 40px' }}
           alignItems="center"
         >
-          <Typography variant="h4">Liên hệ với ứng viên qua email</Typography>
+          <Typography variant="h4">{`Liên hệ với ${user} qua email`}</Typography>
           <CloseIcon sx={{ cursor: 'pointer' }} onClick={handleClose} />
         </Stack>
         <Divider sx={{ width: '100%' }} />

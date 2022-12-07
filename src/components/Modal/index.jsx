@@ -1,5 +1,5 @@
-import React from "react";
-import Modal from "@mui/material/Modal";
+import React from 'react'
+import Modal from '@mui/material/Modal'
 import {
   Box,
   Collapse,
@@ -7,32 +7,32 @@ import {
   Stack,
   Typography,
   Alert,
-} from "@mui/material";
+} from '@mui/material'
 
-import { PRIMARY_COLOR } from "utilities/constant";
-import CloseIcon from "@mui/icons-material/Close";
-import styles from "./../Modal/Modal.module.css";
-import CustomButton from "components/CustomButton";
-import upload from "images/JobDetail/ic_upload.svg";
-import { useJobDetailStore } from "../../pages/JobDetail/store";
+import { PRIMARY_COLOR } from 'utilities/constant'
+import CloseIcon from '@mui/icons-material/Close'
+import styles from './../Modal/Modal.module.css'
+import CustomButton from 'components/CustomButton'
+import upload from 'images/JobDetail/ic_upload.svg'
+import { useJobDetailStore } from '../../pages/JobDetail/store'
 const style = {
-  position: "absolute",
-  top: "50%",
-  left: "50%",
-  transform: "translate(-50%, -50%)",
-  width: "80%",
-  bgcolor: "background.paper",
+  position: 'absolute',
+  top: '50%',
+  left: '50%',
+  transform: 'translate(-50%, -50%)',
+  width: '80%',
+  bgcolor: 'background.paper',
   boxShadow: 24,
-  borderRadius: "8px",
-  pt: "40px",
-};
+  borderRadius: '8px',
+  pt: '40px',
+}
 export default function CustomModal({ open, setOpen }) {
-  const [openAlert, setOpenAlert] = React.useState(false);
+  const [openAlert, setOpenAlert] = React.useState(false)
 
-  const handleClose = () => setOpen(false);
-  const { file, setFile, status, setStatus } = useJobDetailStore(
+  const handleClose = () => setOpen(false)
+  const { file, setFile, status, setStatus, setSuccess } = useJobDetailStore(
     (state) => state
-  );
+  )
 
   return (
     <Modal
@@ -45,7 +45,7 @@ export default function CustomModal({ open, setOpen }) {
         <Stack
           direction="row"
           justifyContent="space-between"
-          sx={{ padding: "0 40px 40px" }}
+          sx={{ padding: '0 40px 40px' }}
         >
           <Typography variant="h4">
             Ứng tuyển
@@ -54,7 +54,7 @@ export default function CustomModal({ open, setOpen }) {
             </span>
           </Typography>
         </Stack>
-        <Stack className={styles.main} sx={{ padding: "40px" }} spacing="25px">
+        <Stack className={styles.main} sx={{ padding: '40px' }} spacing="25px">
           {status === 0 ? (
             <>
               <Typography variant="body2" className={styles.normar_text}>
@@ -69,13 +69,13 @@ export default function CustomModal({ open, setOpen }) {
               </Typography>
               <CustomButton
                 sx={{
-                  width: { xs: "100%", lg: "20%" },
+                  width: { xs: '100%', lg: '20%' },
                   backgroundColor: PRIMARY_COLOR,
-                  whiteSpace: "nowrap",
-                  padding: "11px 80px",
+                  whiteSpace: 'nowrap',
+                  padding: '11px 80px',
                 }}
                 startIcon={
-                  <img src={upload} alt="" style={{ filter: "#FFFFFF" }} />
+                  <img src={upload} alt="" style={{ filter: '#FFFFFF' }} />
                 }
                 variant="contained"
                 component="label"
@@ -87,7 +87,7 @@ export default function CustomModal({ open, setOpen }) {
                   multiple
                   type="file"
                   onChange={(e) => {
-                    setFile(e.target.files[0].name);
+                    setFile(e.target.files[0].name)
                   }}
                 />
               </CustomButton>
@@ -99,8 +99,8 @@ export default function CustomModal({ open, setOpen }) {
                       color="inherit"
                       size="small"
                       onClick={() => {
-                        setOpenAlert(false);
-                        setFile(null);
+                        setOpenAlert(false)
+                        setFile(null)
                       }}
                     >
                       <CloseIcon fontSize="inherit" />
@@ -127,21 +127,21 @@ export default function CustomModal({ open, setOpen }) {
           direction="row"
           justifyContent="flex-end"
           alignItems="center"
-          sx={{ padding: "40px" }}
+          sx={{ padding: '40px' }}
           spacing="15px"
         >
           {status === 0 ? (
             <>
               <CustomButton
                 sx={{
-                  width: { xs: "100%", lg: "20%" },
-                  whiteSpace: "nowrap",
+                  width: { xs: '100%', lg: '20%' },
+                  whiteSpace: 'nowrap',
 
-                  color: "#212b36",
+                  color: '#212b36',
                 }}
                 className={styles.buttons}
                 onClick={() => {
-                  setOpen(false);
+                  setOpen(false)
                 }}
               >
                 Hủy bỏ
@@ -149,25 +149,30 @@ export default function CustomModal({ open, setOpen }) {
               {!file ? (
                 <CustomButton
                   sx={{
-                    width: { xs: "100%", lg: "20%" },
-                    whiteSpace: "nowrap",
-                    color: "#212b36",
+                    width: { xs: '100%', lg: '20%' },
+                    whiteSpace: 'nowrap',
+                    color: '#212b36',
                   }}
                   className={styles.buttons}
                   disabled={!file}
+                  onClick={() => {
+                    setSuccess(true)
+                  }}
                 >
                   Ứng tuyển
                 </CustomButton>
               ) : (
                 <CustomButton
                   sx={{
-                    width: { xs: "100%", lg: "20%" },
-                    whiteSpace: "nowrap",
+                    width: { xs: '100%', lg: '20%' },
+                    whiteSpace: 'nowrap',
                     backgroundColor: PRIMARY_COLOR,
-                    padding: "11px 65px",
+                    padding: '11px 65px',
                   }}
                   onClick={() => {
-                    setStatus(1);
+                    setSuccess(true)
+
+                    setStatus(1)
                   }}
                 >
                   Ứng tuyển
@@ -178,14 +183,14 @@ export default function CustomModal({ open, setOpen }) {
             <>
               <CustomButton
                 sx={{
-                  width: { xs: "100%", lg: "20%" },
-                  whiteSpace: "nowrap",
+                  width: { xs: '100%', lg: '20%' },
+                  whiteSpace: 'nowrap',
 
-                  color: "#212b36",
+                  color: '#212b36',
                 }}
                 className={styles.buttons}
                 onClick={() => {
-                  setOpen(false);
+                  setOpen(false)
                 }}
               >
                 Trở về
@@ -193,13 +198,13 @@ export default function CustomModal({ open, setOpen }) {
 
               <CustomButton
                 sx={{
-                  width: { xs: "100%", lg: "20%" },
-                  whiteSpace: "nowrap",
+                  width: { xs: '100%', lg: '20%' },
+                  whiteSpace: 'nowrap',
                   backgroundColor: PRIMARY_COLOR,
-                  padding: "11px 65px",
+                  padding: '11px 65px',
                 }}
                 onClick={() => {
-                  setOpen(false);
+                  setOpen(false)
                 }}
               >
                 Quản lý việc làm
@@ -209,5 +214,5 @@ export default function CustomModal({ open, setOpen }) {
         </Stack>
       </Box>
     </Modal>
-  );
+  )
 }

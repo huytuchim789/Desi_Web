@@ -18,9 +18,7 @@ export const routes = [
   {
     path: '/',
     element: (
-      <PrivateRouter>
         <Home />
-      </PrivateRouter>
     ),
   },
   {

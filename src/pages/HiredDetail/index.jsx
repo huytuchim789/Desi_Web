@@ -91,7 +91,7 @@ function HiredDetail() {
   }, [choice])
   return (
     <>
-      <CustomModal open={open} setOpen={setOpen} />
+      <CustomModal user="Nhà tuyển dụng" open={open} setOpen={setOpen} />
 
       <Header />
       <Box sx={{ backgroundColor: '#f4f6f8' }}>

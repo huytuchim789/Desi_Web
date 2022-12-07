@@ -43,7 +43,7 @@ export default function CustomCard() {
 
   return (
     <Stack alignItems="center" className={styles.card}>
-      <CustomModal open={open} setOpen={setOpen} />
+      <CustomModal user="Ứng viên" open={open} setOpen={setOpen} />
 
       <Avatar src={ava} sx={{ width: '136px', height: '136px' }} />
       <Stack alignItems="center" spacing="25px">

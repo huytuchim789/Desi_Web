@@ -97,7 +97,7 @@ export default function AvaMenu({ sx }) {
       >
         <MenuItem>
           <Typography variant="body1" fontWeight={600}>
-            {auth.email}
+            {auth?.email}
           </Typography>
         </MenuItem>
         <Divider />

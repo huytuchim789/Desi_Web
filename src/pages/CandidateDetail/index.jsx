@@ -88,16 +88,18 @@ function CandidateDetail() {
           <Grid item lg={4} sx={{ position: 'relative' }}>
             <CustomCard />
           </Grid>
-          <Grid container item lg={8} justifyContent="center">
-            <Typography
-              variant="h5"
-              className={styles.normal_text}
-              sx={{ width: '100%' }}
-              align="start"
-            >
-              Hồ sơ dự án của ứng viên
-            </Typography>
-            <Divider sx={{ width: '100%' }} />
+          <Grid container item lg={8}>
+            <Box>
+              <Typography
+                variant="h5"
+                className={styles.normal_text}
+                sx={{ width: '100%' }}
+                align="start"
+              >
+                Hồ sơ dự án của ứng viên
+              </Typography>
+            </Box>
+            <Divider sx={{ width: '100%', height: '1px' }} />
             {id ? (
               <ProjectCard />
             ) : (

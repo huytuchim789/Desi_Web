@@ -68,7 +68,7 @@ const SignUp = () => {
     if (data) {
       localStorage.setItem('auth', JSON.stringify(data))
       setAuth(data)
-      navigate('/')
+      navigate('/confirm')
     }
   }
   return (
@@ -220,6 +220,19 @@ const SignUp = () => {
             <img src={Linkedln} />
           </Button>
         </ButtonGroup>
+        <Typography variant="body2" align="center" sx={{ marginTop: '30px' }}>
+          Bạn chưa có tài khoản?
+          {
+            <Link
+              sx={{ color: PRIMARY_COLOR, fontWeight: 600 }}
+              underline="none"
+              href="/signup"
+              onClick={() => {}}
+            >
+              {' Đăng ký ngay'}
+            </Link>
+          }
+        </Typography>
       </Grid>
     </Grid>
   )

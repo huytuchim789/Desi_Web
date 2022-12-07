@@ -20,78 +20,82 @@ import {
   ToggleButton,
   ToggleButtonGroup,
   Typography,
-} from "@mui/material";
-import CustomButton from "components/CustomButton";
-import Footer from "components/Footer";
-import Header from "components/Header";
-import React, { useEffect, useState } from "react";
-import { cardsData, PRIMARY_COLOR } from "utilities/constant";
-import styles from "./../JobDetail/FindJob.module.css";
-import SearchIcon from "@mui/icons-material/Search";
-import img from "images/JobDetail/logo.svg";
-import CalendarTodayIcon from "@mui/icons-material/CalendarToday";
-import NewestCard from "components/NewestCard";
-import l1 from "images/JobDetail/ic_cost.svg";
-import l2 from "images/JobDetail/ic_verified.svg";
-import l3 from "images/JobDetail/ic_user_group.svg";
-import l4 from "images/JobDetail/ic_job.svg";
-import l5 from "images/JobDetail/ic_location.svg";
-import BoltIcon from "@mui/icons-material/Bolt";
-import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
-import CopyToClipboardButton from "components/InputCopyClipboard";
-import Facebook from "images/Social Media.svg";
-import Youtube from "images/Social Media (2).svg";
-import Linkedln from "images/Social Media (3).svg";
-import CustomModal from "../../components/Modal";
+} from '@mui/material'
+import CustomButton from 'components/CustomButton'
+import Footer from 'components/Footer'
+import Header from 'components/Header'
+import React, { useEffect, useState } from 'react'
+import { cardsData, PRIMARY_COLOR } from 'utilities/constant'
+import styles from './../JobDetail/FindJob.module.css'
+import SearchIcon from '@mui/icons-material/Search'
+import img from 'images/JobDetail/logo.svg'
+import CalendarTodayIcon from '@mui/icons-material/CalendarToday'
+import NewestCard from 'components/NewestCard'
+import l1 from 'images/JobDetail/ic_cost.svg'
+import l2 from 'images/JobDetail/ic_verified.svg'
+import l3 from 'images/JobDetail/ic_user_group.svg'
+import l4 from 'images/JobDetail/ic_job.svg'
+import l5 from 'images/JobDetail/ic_location.svg'
+import BoltIcon from '@mui/icons-material/Bolt'
+import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder'
+import CopyToClipboardButton from 'components/InputCopyClipboard'
+import Facebook from 'images/Social Media.svg'
+import Youtube from 'images/Social Media (2).svg'
+import Linkedln from 'images/Social Media (3).svg'
+import CustomModal from '../../components/Modal'
+import { useJobDetailStore } from './store'
+import { FavoriteOutlined } from '@mui/icons-material'
 const jobs = [
-  { label: "Tất cả công việc", value: "all" },
-  { label: "Thiết kế nhận diện thương hiệu ", value: "brand" },
-  { label: "Thiết kế hoạt họa", value: "design" },
-  { label: "Thiết kế nội thất ", value: "infra" },
-];
+  { label: 'Tất cả công việc', value: 'all' },
+  { label: 'Thiết kế nhận diện thương hiệu ', value: 'brand' },
+  { label: 'Thiết kế hoạt họa', value: 'design' },
+  { label: 'Thiết kế nội thất ', value: 'infra' },
+]
 const prices = [
-  { label: "Dưới 500.000 VND", value: [0, 500000] },
-  { label: "500.000 - 1.500.000 VND", value: [500000, 1500000] },
-  { label: "1.500.000 - 3.000.000 VND", value: [1500000, 3000000] },
-  { label: "Trên 3.000.000 VND", value: [3000000, 999999999999] },
-];
+  { label: 'Dưới 500.000 VND', value: [0, 500000] },
+  { label: '500.000 - 1.500.000 VND', value: [500000, 1500000] },
+  { label: '1.500.000 - 3.000.000 VND', value: [1500000, 3000000] },
+  { label: 'Trên 3.000.000 VND', value: [3000000, 999999999999] },
+]
 
 const recruits = [
   {
     logo: l1,
-    header: "Mức lương",
-    content: "2-4 triệu",
+    header: 'Mức lương',
+    content: '2-4 triệu',
   },
   {
     logo: l2,
-    header: "Kinh nghiệm",
-    content: "Không yêu cầu",
+    header: 'Kinh nghiệm',
+    content: 'Không yêu cầu',
   },
   {
     logo: l3,
-    header: "Số lượng tuyển",
-    content: "2 người",
+    header: 'Số lượng tuyển',
+    content: '2 người',
   },
   {
     logo: l4,
-    header: "Thời gian tối thiểu",
-    content: "3-5 tiếng/ngày",
+    header: 'Thời gian tối thiểu',
+    content: '3-5 tiếng/ngày',
   },
   {
     logo: l5,
-    header: "Địa điểm",
-    content: "Hà Nội",
+    header: 'Địa điểm',
+    content: 'Hà Nội',
   },
-];
-const posters = ["Poster", "Hà Nội", "Graphic Designer", "Banner"];
+]
+const posters = ['Poster', 'Hà Nội', 'Graphic Designer', 'Banner']
 export default function JobDetail() {
-  const [alignment, setAlignment] = React.useState();
-  const [open, setOpen] = useState(false);
-  const [cards, setCards] = useState(cardsData);
-  const [job, setJob] = React.useState();
-  const [price, setPrice] = React.useState();
-  const [search, setSearch] = useState("");
-  const handleOpen = () => setOpen(true);
+  const { success } = useJobDetailStore((state) => state)
+  const [alignment, setAlignment] = React.useState()
+  const [open, setOpen] = useState(false)
+  const [cards, setCards] = useState(cardsData)
+  const [job, setJob] = React.useState()
+  const [price, setPrice] = React.useState()
+  const [search, setSearch] = useState('')
+  const [love, setLove] = useState(false)
+  const handleOpen = () => setOpen(true)
 
   const breadcrumbs = [
     <Link underline="hover" key="1" color="inherit" href="/">
@@ -108,124 +112,124 @@ export default function JobDetail() {
     <Typography key="3" color="text.primary">
       Chi tiết việc làm
     </Typography>,
-  ];
+  ]
 
   const filterSalary = (cards, price) => {
-    let newPrice = price;
-    let newDataCards = cards;
-    console.log(cards, price);
+    let newPrice = price
+    let newDataCards = cards
+    console.log(cards, price)
     const newData = newDataCards
       .filter((c) => {
-        if (newPrice) return c.salary > newPrice[0] && c.salary < newPrice[1];
-        return true;
+        if (newPrice) return c.salary > newPrice[0] && c.salary < newPrice[1]
+        return true
       })
       .filter((c) => {
-        if (job) return c.jobKey === job;
-        return true;
+        if (job) return c.jobKey === job
+        return true
       })
       .filter((c) => {
-        if (search) return c.name.includes(search);
+        if (search) return c.name.includes(search)
 
-        return true;
+        return true
       })
       .filter((c) => {
-        if (alignment) return c.category === alignment;
-        return true;
-      });
-    setCards(newData);
-  };
+        if (alignment) return c.category === alignment
+        return true
+      })
+    setCards(newData)
+  }
   const filterJob = (cards, job) => {
-    let newDataCards = cards;
+    let newDataCards = cards
     const newData = newDataCards
       .filter((c) => {
-        if (job) return c.jobKey === job;
-        return true;
+        if (job) return c.jobKey === job
+        return true
       })
       .filter((c) => {
-        if (price) return c.salary > price[0] && c.salary < price[1];
-        return true;
+        if (price) return c.salary > price[0] && c.salary < price[1]
+        return true
       })
       .filter((c) => {
-        if (search) return c.name.includes(search);
+        if (search) return c.name.includes(search)
 
-        return true;
+        return true
       })
       .filter((c) => {
-        if (alignment) return c.category === alignment;
-        return true;
-      });
-    setCards(newData);
-  };
+        if (alignment) return c.category === alignment
+        return true
+      })
+    setCards(newData)
+  }
   const filterSearch = (cards, search) => {
-    let newDataCards = cards;
+    let newDataCards = cards
     const newData = newDataCards
       .filter((c) => {
-        if (search) return c.name.includes(search);
+        if (search) return c.name.includes(search)
 
-        return true;
+        return true
       })
       .filter((c) => {
-        if (price) return c.salary > price[0] && c.salary < price[1];
-        return true;
+        if (price) return c.salary > price[0] && c.salary < price[1]
+        return true
       })
       .filter((c) => {
-        if (job) return c.jobKey === job;
-        return true;
+        if (job) return c.jobKey === job
+        return true
       })
       .filter((c) => {
-        if (alignment) return c.category === alignment;
-        return true;
-      });
-    setCards(newData);
-  };
+        if (alignment) return c.category === alignment
+        return true
+      })
+    setCards(newData)
+  }
   const filterAlign = (cards, align) => {
-    let newDataCards = cards;
+    let newDataCards = cards
     const newData = newDataCards
       .filter((c) => {
-        if (search) return c.name.includes(search);
-        return true;
+        if (search) return c.name.includes(search)
+        return true
       })
       .filter((c) => {
-        if (price) return c.salary > price[0] && c.salary < price[1];
-        return true;
+        if (price) return c.salary > price[0] && c.salary < price[1]
+        return true
       })
       .filter((c) => {
-        if (job) return c.jobKey === job;
-        return true;
+        if (job) return c.jobKey === job
+        return true
       })
       .filter((c) => {
-        if (align) return c.category === align;
-        return true;
-      });
-    setCards(newData);
-  };
+        if (align) return c.category === align
+        return true
+      })
+    setCards(newData)
+  }
   const renderTitle = () => {
     if (!search && !alignment && !price && !job)
       return (
         <Stack alignItems="center">
-          <Typography variant="h5" sx={{ fontWeight: "600" }}>
+          <Typography variant="h5" sx={{ fontWeight: '600' }}>
             Việc làm freelancer - Làm online, nhận tiền nhanh chóng
           </Typography>
-          <Typography variant="h6" sx={{ color: "#637381", fontWeight: "500" }}>
+          <Typography variant="h6" sx={{ color: '#637381', fontWeight: '500' }}>
             Hơn 51931 dự án đã đăng và thuê được freelancer thành công.
           </Typography>
         </Stack>
-      );
+      )
     return (
-      <Stack alignItems="start" sx={{ width: "100%" }}>
-        <Typography variant="h5" sx={{ fontWeight: "600" }}>
+      <Stack alignItems="start" sx={{ width: '100%' }}>
+        <Typography variant="h5" sx={{ fontWeight: '600' }}>
           {`${
             alignment
-              ? "Thiết kế nhận diện thương hiệu 15 dự án"
-              : "Kết quả tìm kiếm"
+              ? 'Thiết kế nhận diện thương hiệu 15 dự án'
+              : 'Kết quả tìm kiếm'
           }`}
         </Typography>
-        <Typography variant="h6" sx={{ color: "#637381", fontWeight: "500" }}>
+        <Typography variant="h6" sx={{ color: '#637381', fontWeight: '500' }}>
           {`${cards.length} dự án`}
         </Typography>
       </Stack>
-    );
-  };
+    )
+  }
   useEffect(() => {
     // console.log(price, job, cards)
     // const newData = newDataCards.filter((c) => {
@@ -239,7 +243,7 @@ export default function JobDetail() {
     //   return true
     // })
     // setCards(newData)
-  }, [price, job, search]);
+  }, [price, job, search])
   return (
     <>
       <CustomModal open={open} setOpen={setOpen} />
@@ -248,26 +252,27 @@ export default function JobDetail() {
         direction="row"
         className={styles.findJob}
         justifyContent="space-between"
+        spacing={2}
       >
         <OutlinedInput
           required
           id="outlined-required"
           hiddenLabel
           placeholder="Tên công việc, vị trí bạn muốn ứng tuyển ..."
-          sx={{ width: "30%" }}
+          sx={{ width: '30%' }}
           onChange={(e) => {
             if (e.target.value) {
-              setSearch(e.target.value);
-              filterSearch(cardsData, e.target.value);
+              setSearch(e.target.value)
+              filterSearch(cardsData, e.target.value)
               // filterJob(cardsData, job)
               // filterSalary(cardsData, price)
             } else {
-              setCards(cardsData);
+              setCards(cardsData)
             }
           }}
         />
 
-        <FormControl sx={{ width: "30%" }}>
+        <FormControl sx={{ width: '30%' }}>
           <Select
             labelId="demo-simple-select-label"
             id="demo-simple-select"
@@ -275,19 +280,19 @@ export default function JobDetail() {
             value={job}
             // placeholder="Danh mục công việc"
             displayEmpty
-            renderValue={job ? undefined : () => "Danh mục công việc"}
+            renderValue={job ? undefined : () => 'Danh mục công việc'}
             onChange={(e) => {
               if (e.target.value) {
-                setJob(e.target.value);
+                setJob(e.target.value)
                 // filterSearch(cardsData, search)
-                filterJob(cardsData, e.target.value);
+                filterJob(cardsData, e.target.value)
                 // filterSalary(cardsData, price)
               } else {
-                setCards(cardsData);
+                setCards(cardsData)
               }
             }}
           >
-            <Typography sx={{ padding: "16px 16px" }}>
+            <Typography sx={{ padding: '16px 16px' }}>
               Danh mục công việc <span>{` (${jobs.length})`}</span>
             </Typography>
             {jobs.map((job, i) => (
@@ -297,7 +302,7 @@ export default function JobDetail() {
             ))}
           </Select>
         </FormControl>
-        <FormControl sx={{ width: "30%" }}>
+        <FormControl sx={{ width: '30%' }}>
           <Select
             labelId="demo-simple-select-label"
             id="demo-simple-select"
@@ -305,15 +310,15 @@ export default function JobDetail() {
             value={price}
             // placeholder="Danh mục công việc"
             displayEmpty
-            renderValue={price ? undefined : () => "Mức giá mong muốn"}
+            renderValue={price ? undefined : () => 'Mức giá mong muốn'}
             onChange={(e) => {
               if (e.target.value) {
-                setPrice(JSON.parse(e.target.value));
-                filterSalary(cardsData, JSON.parse(e.target.value));
+                setPrice(JSON.parse(e.target.value))
+                filterSalary(cardsData, JSON.parse(e.target.value))
               }
             }}
           >
-            <Typography sx={{ padding: "16px 16px" }}>
+            <Typography sx={{ padding: '16px 16px' }}>
               Danh mục công việc <span>{` (${prices.length})`}</span>
             </Typography>
             {prices.map((price, i) => (
@@ -329,9 +334,9 @@ export default function JobDetail() {
         </FormControl>
         <CustomButton
           sx={{
-            width: { xs: "100%", lg: "initial" },
+            width: { xs: '100%', lg: 'initial' },
             backgroundColor: PRIMARY_COLOR,
-            whiteSpace: "nowrap",
+            whiteSpace: 'nowrap',
           }}
           startIcon={<SearchIcon />}
         >
@@ -340,13 +345,13 @@ export default function JobDetail() {
       </Stack>
       <Stack className={styles.main} alignItems="center" spacing="50px">
         <Breadcrumbs
-          sx={{ width: "100%" }}
+          sx={{ width: '100%' }}
           separator="."
           aria-label="breadcrumb"
         >
           {breadcrumbs}
         </Breadcrumbs>
-        <Box sx={{ width: "100%" }}>
+        <Box sx={{ width: '100%' }}>
           <Stack
             className={styles.container}
             alignItems="start"
@@ -357,7 +362,7 @@ export default function JobDetail() {
               <Avatar
                 alt="logo"
                 src={img}
-                sx={{ width: "138px", height: "138px" }}
+                sx={{ width: '138px', height: '138px' }}
               ></Avatar>
               <Stack justifyContent="center" spacing="10px">
                 <Typography variant="h5">
@@ -371,7 +376,7 @@ export default function JobDetail() {
                 </Link>
                 <Stack direction="row" spacing="10px" alignItems="center">
                   <CalendarTodayIcon />
-                  <Typography variant="body2" sx={{ fontWeight: "400" }}>
+                  <Typography variant="body2" sx={{ fontWeight: '400' }}>
                     Hạn ứng tuyển: 30/12/2022
                   </Typography>
                 </Stack>
@@ -383,23 +388,28 @@ export default function JobDetail() {
                 size="large"
                 className={styles.btn_padding}
                 sx={{
-                  width: { xs: "100%", lg: "initial" },
+                  width: { xs: '100%', lg: 'initial' },
                   backgroundColor: PRIMARY_COLOR,
-                  whiteSpace: "nowrap",
+                  whiteSpace: 'nowrap',
                 }}
                 onClick={handleOpen}
               >
-                Ứng tuyển ngay
+                {!success ? 'Ứng tuyển ngay' : 'Đã ứng tuyển '}
               </CustomButton>
               <Button
                 variant="outlined"
                 className={`${styles.buttons} ${styles.btn_padding}`}
-                startIcon={<FavoriteBorderIcon />}
+                startIcon={
+                  !love ? <FavoriteBorderIcon /> : <FavoriteOutlined />
+                }
+                onClick={() => {
+                  setLove(!love)
+                }}
                 size="large"
                 sx={{
-                  width: { xs: "100%", lg: "initial" },
+                  width: { xs: '100%', lg: 'initial' },
                   // backgroundColor: PRIMARY_COLOR,
-                  whiteSpace: "nowrap",
+                  whiteSpace: 'nowrap',
                 }}
               >
                 Lưu tin
@@ -412,18 +422,18 @@ export default function JobDetail() {
             // spacing={3}
             className={styles.list}
             sx={{
-              borderTop: "1px dashed #dfe3e8",
-              width: "100%",
-              background: "white",
-              padding: "27px 40px",
+              borderTop: '1px dashed #dfe3e8',
+              width: '100%',
+              background: 'white',
+              padding: '27px 40px',
             }}
           >
             <Grid container item lg={7} rowGap={3}>
               <Stack
                 sx={{
-                  padding: "27px 29px",
-                  background: "rgba(145, 158, 171, 0.08);",
-                  borderRadius: "8px",
+                  padding: '27px 29px',
+                  background: 'rgba(145, 158, 171, 0.08);',
+                  borderRadius: '8px',
                 }}
                 spacing="30px"
               >
@@ -437,13 +447,13 @@ export default function JobDetail() {
                   columnGap="15px"
                 >
                   {recruits.map((r) => (
-                    <Stack direction="row" sx={{ width: "25%" }} spacing="8px">
+                    <Stack direction="row" sx={{ width: '25%' }} spacing="8px">
                       <img src={r.logo} width="27px" alt="" height="27px" />
                       <Stack spacing="5px">
                         <Typography className={styles.gray_text}>
                           {r.header}
                         </Typography>
-                        <Typography sx={{ fontWeight: "600" }}>
+                        <Typography sx={{ fontWeight: '600' }}>
                           {r.content}
                         </Typography>
                       </Stack>
@@ -517,7 +527,7 @@ export default function JobDetail() {
                   <li>Được đào tạo, nâng cao nghiệp vụ thường xuyên.</li>
                 </ul>
               </Stack>
-              <Stack sx={{ width: "100%" }} spacing="12px">
+              <Stack sx={{ width: '100%' }} spacing="12px">
                 <Typography variant="h4">Cách thức ứng tuyển</Typography>
                 <Typography variant="subtitle1" fontWeight={600}>
                   Ứng viên nộp hồ sơ trực tuyến bằng cách bấm Ứng tuyển ngay tại
@@ -527,19 +537,19 @@ export default function JobDetail() {
 
               <CustomButton
                 sx={{
-                  width: { xs: "100%", lg: "initial" },
+                  width: { xs: '100%', lg: 'initial' },
                   backgroundColor: PRIMARY_COLOR,
                   // whiteSpace: 'nowrap',
-                  padding: "11px 52px",
+                  padding: '11px 52px',
                 }}
               >
-                Ứng tuyển ngay
+                {!success ? 'Ứng tuyển ngay' : 'Đã ứng tuyển '}
               </CustomButton>
             </Grid>
             <Grid item lg={4.8}>
               <Stack spacing="30px">
                 <Stack spacing="20px" className={styles.box1}>
-                  <Typography variant="body1" sx={{ fontWeight: "600" }}>
+                  <Typography variant="body1" sx={{ fontWeight: '600' }}>
                     Chia sẻ tin tuyển dụng
                   </Typography>
                   <Typography className={styles.gray_text}>
@@ -549,14 +559,14 @@ export default function JobDetail() {
                   <Typography className={styles.gray_text}>
                     Chia sẻ qua mạng xã hội
                   </Typography>
-                  <Stack direction="row" spacing={"20px"}>
+                  <Stack direction="row" spacing={'20px'}>
                     <img src={Facebook} alt="" />
                     <img src={Youtube} alt="" />
                     <img src={Linkedln} alt="" />
                   </Stack>
                 </Stack>
                 <Stack spacing="20px" className={styles.box1}>
-                  <Typography variant="body1" sx={{ fontWeight: "600" }}>
+                  <Typography variant="body1" sx={{ fontWeight: '600' }}>
                     Báo cáo tin tuyển dụng
                   </Typography>
                   <Typography className={styles.gray_text}>
@@ -566,11 +576,11 @@ export default function JobDetail() {
                   <CustomButton
                     className={styles.orange_btn}
                     sx={{
-                      width: { xs: "100%", lg: "initial" },
-                      whiteSpace: "nowrap",
+                      width: { xs: '100%', lg: 'initial' },
+                      whiteSpace: 'nowrap',
                     }}
                   >
-                    Ứng tuyển ngay
+                    Báo cáo tin tuyển dụng
                   </CustomButton>
                 </Stack>
                 <Stack spacing="15px">
@@ -589,7 +599,7 @@ export default function JobDetail() {
         </Box>
 
         {renderTitle()}
-        <Grid container rowSpacing={"40px"} justify="space-between" spacing={3}>
+        <Grid container rowSpacing={'40px'} justify="space-between" spacing={3}>
           {cards.map((e) => (
             <Grid item lg={5.85} xs={12}>
               <NewestCard {...e} />
@@ -600,5 +610,5 @@ export default function JobDetail() {
       </Stack>
       <Footer />
     </>
-  );
+  )
 }

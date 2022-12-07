@@ -119,11 +119,12 @@
 
   /* 07 Grey/800 */
 
-  color: #212b36;
+  color: #212b36 !important;
 }
 .orange_btn:hover {
   background: #b78103 !important;
 }
+
 .chip {
   background: rgba(145, 158, 171, 0.16) !important;
   border-radius: 6px !important;
