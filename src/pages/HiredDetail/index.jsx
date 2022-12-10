@@ -50,7 +50,7 @@ function HiredDetail() {
     {
       num: -1,
       key: 'all',
-      label: 'Tất cả',
+      label: 'Đang tuyển',
       color: '#DFE3E8',
     },
     {
@@ -77,7 +77,7 @@ function HiredDetail() {
   const handleSelectChoice = () => {
     switch (choice) {
       case 0:
-        setJobs(cardsData)
+        setJobs(cardsData.filter((d) => d.status !== 'hired'))
         break
       case 1:
         setJobs(cardsData.filter((d) => d.status === 'hired'))
