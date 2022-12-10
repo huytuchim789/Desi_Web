@@ -15,7 +15,7 @@ import CustomCard from '../../components/CustomCard'
 import ImagePreview from 'components/ImagePreview'
 import img from 'images/candidates/nature.svg'
 import Outstanding from './Outstanding'
-import { useSearchParams } from 'react-router-dom'
+import { useLocation, useSearchParams } from 'react-router-dom'
 import ProjectCard from 'components/ProjectCard'
 import CustomModal from 'components/CandidateModal'
 const images = [
@@ -79,6 +79,7 @@ const images = [
 function CandidateDetail() {
   const [searchParams] = useSearchParams()
   const id = searchParams.get('project_id')
+
   return (
     <>
       <Header />

@@ -85,6 +85,9 @@ const CustomFreelancerCard = () => {
             whiteSpace: 'nowrap',
             padding: '11px 22px',
           }}
+          onClick={() => {
+            navigate('/candidate', { state: { open: true } })
+          }}
         >
           Liên hệ
         </CustomButton>

@@ -8,7 +8,7 @@ import {
   Stack,
   Typography,
 } from '@mui/material'
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import styles from './../CustomCard/CustomCard.module.css'
 import ava from 'images/Outstanding/ttn.svg'
 import location from 'images/candidates/ic_location.svg'
@@ -24,6 +24,7 @@ import Facebook from 'images/Social Media.svg'
 import Youtube from 'images/Social Media (2).svg'
 import Linkedln from 'images/Social Media (3).svg'
 import CustomModal from 'components/CandidateModal'
+import { useLocation } from 'react-router-dom'
 
 const posters = [
   'Poster',
@@ -40,7 +41,14 @@ const posters = [
 export default function CustomCard() {
   const [value, setValue] = React.useState(2)
   const [open, setOpen] = useState(false)
+  const location = useLocation()
+  useEffect(() => {
+    console.log(location)
 
+    if (location.state?.open) {
+      setOpen(true)
+    }
+  }, [])
   return (
     <Stack alignItems="center" className={styles.card}>
       <CustomModal user="Ứng viên" open={open} setOpen={setOpen} />
