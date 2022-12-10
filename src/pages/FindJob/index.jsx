@@ -321,7 +321,7 @@ export default function FindJob() {
           ))}
         </ToggleButtonGroup>
         {renderTitle()}
-        <Grid container rowSpacing={'50px'} columnSpacing={'50px'}>
+        <Grid container rowGap={'50px'} columnSpacing={'50px'}>
           {jobs.map((e) => (
             <Grid item lg={6} xs={12}>
               <NewestCard {...e} />

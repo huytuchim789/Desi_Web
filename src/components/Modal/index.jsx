@@ -15,6 +15,7 @@ import styles from './../Modal/Modal.module.css'
 import CustomButton from 'components/CustomButton'
 import upload from 'images/JobDetail/ic_upload.svg'
 import { useJobDetailStore } from '../../pages/JobDetail/store'
+import { useNavigate } from 'react-router-dom'
 const style = {
   position: 'absolute',
   top: '50%',
@@ -28,7 +29,7 @@ const style = {
 }
 export default function CustomModal({ open, setOpen }) {
   const [openAlert, setOpenAlert] = React.useState(false)
-
+  let navigate = useNavigate()
   const handleClose = () => setOpen(false)
   const { file, setFile, status, setStatus, setSuccess } = useJobDetailStore(
     (state) => state
@@ -204,6 +205,9 @@ export default function CustomModal({ open, setOpen }) {
                   padding: '11px 65px',
                 }}
                 onClick={() => {
+                  setTimeout(() => {
+                    navigate('/dashboard')
+                  }, 1000)
                   setOpen(false)
                 }}
               >
