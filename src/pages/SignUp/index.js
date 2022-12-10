@@ -11,6 +11,7 @@ import {
   IconButton,
   InputAdornment,
   InputLabel,
+  Link,
   OutlinedInput,
   TextField,
   ToggleButton,
@@ -282,6 +283,19 @@ const Login = () => {
             <img src={Linkedln} />
           </Button>
         </ButtonGroup>
+        <Typography variant="body2" align="center" sx={{ marginTop: '30px' }}>
+          Bạn đã có tài khoản?
+          {
+            <Link
+              sx={{ color: PRIMARY_COLOR, fontWeight: 600 }}
+              underline="none"
+              href="/signin"
+              onClick={() => {}}
+            >
+              {' Đăng nhập'}
+            </Link>
+          }
+        </Typography>
       </Grid>
     </Grid>
   )

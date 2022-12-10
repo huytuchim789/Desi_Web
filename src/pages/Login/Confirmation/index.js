@@ -7,9 +7,11 @@ import Logo from './../../../images/logo.svg'
 import styles from './../Confirmation/Forget.module.css'
 import toast from '../../../utilities/toast'
 import CustomizedSnackbars from 'components/Toast'
+import { useNavigate } from 'react-router-dom'
 const Confirmation = () => {
   const [otp, setOtp] = useState('')
   const [open, setOpen] = useState(false)
+  let navigate = useNavigate()
   return (
     <Stack className={styles.forget} alignItems="center" spacing="35px">
       <img src={Logo} alt="" className={styles.logo} />
@@ -40,6 +42,9 @@ const Confirmation = () => {
         fullWidth
         onClick={() => {
           setOpen(true)
+          setTimeout(() => {
+            navigate('/login')
+          }, 1000)
         }}
       >
         Xác Nhận
